@@ -60,6 +60,10 @@ class Input extends React.Component {
   render() {
     const {
       containerStyle,
+      disabled,
+      disabledStyles,
+      disabledIconStyles,
+      disabledInputStyles,
       inputContainerStyle,
       leftIcon,
       leftIconContainerStyle,
@@ -83,11 +87,17 @@ class Input extends React.Component {
     });
 
     return (
-      <View style={StyleSheet.flatten([styles.container, containerStyle])}>
+      <View
+        style={StyleSheet.flatten([
+          styles.container,
+          containerStyle,
+          disabled && (disabledStyles ? disabledStyles : styles.disabled),
+        ])}
+      >
         {renderText(
           label,
           { style: labelStyle, ...labelProps },
-          styles.label(theme)
+          styles.label(theme),
         )}
 
         <Animated.View
@@ -102,6 +112,10 @@ class Input extends React.Component {
               style={StyleSheet.flatten([
                 styles.iconContainer,
                 leftIconContainerStyle,
+                disabled &&
+                  (disabledIconStyles
+                    ? disabledIconStyles
+                    : styles.disabledIcon),
               ])}
             >
               {renderNode(Icon, leftIcon)}
@@ -111,11 +125,19 @@ class Input extends React.Component {
           <InputComponent
             testID="RNE__Input__text-input"
             underlineColorAndroid="transparent"
+            editable={!disabled}
             {...attributes}
             ref={ref => {
               this.input = ref;
             }}
-            style={StyleSheet.flatten([styles.input, inputStyle])}
+            style={StyleSheet.flatten([
+              styles.input,
+              inputStyle,
+              disabled &&
+                (disabledInputStyles
+                  ? disabledInputStyles
+                  : styles.disabledInput),
+            ])}
           />
 
           {rightIcon && (
@@ -123,6 +145,10 @@ class Input extends React.Component {
               style={StyleSheet.flatten([
                 styles.iconContainer,
                 rightIconContainerStyle,
+                disabled &&
+                  (disabledIconStyles
+                    ? disabledIconStyles
+                    : styles.disabledIcon),
               ])}
             >
               {renderNode(Icon, rightIcon)}
@@ -148,6 +174,10 @@ class Input extends React.Component {
 
 Input.propTypes = {
   containerStyle: ViewPropTypes.style,
+  disabled: PropTypes.bool,
+  disabledStyles: ViewPropTypes.style,
+  disabledIconStyles: ViewPropTypes.style,
+  disabledInputStyles: ViewPropTypes.style,
   inputContainerStyle: ViewPropTypes.style,
   leftIcon: nodeType,
   leftIconContainerStyle: ViewPropTypes.style,
@@ -169,6 +199,13 @@ const styles = {
     width: '100%',
     paddingHorizontal: 10,
   },
+  disabled: {
+    opacity: 0.5,
+  },
+  disabledIcon: {
+    opacity: 0.5,
+  },
+  disabledInput: {},
   inputContainer: theme => ({
     flexDirection: 'row',
     borderBottomWidth: 1,
