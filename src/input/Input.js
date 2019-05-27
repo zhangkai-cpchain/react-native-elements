@@ -91,13 +91,13 @@ class Input extends React.Component {
         style={StyleSheet.flatten([
           styles.container,
           containerStyle,
-          disabled && (disabledStyles ? disabledStyles : styles.disabled),
+          disabled && (disabledStyles || styles.disabled),
         ])}
       >
         {renderText(
           label,
           { style: labelStyle, ...labelProps },
-          styles.label(theme),
+          styles.label(theme)
         )}
 
         <Animated.View
@@ -112,10 +112,7 @@ class Input extends React.Component {
               style={StyleSheet.flatten([
                 styles.iconContainer,
                 leftIconContainerStyle,
-                disabled &&
-                  (disabledIconStyles
-                    ? disabledIconStyles
-                    : styles.disabledIcon),
+                disabled && (disabledIconStyles || styles.disabledIcon),
               ])}
             >
               {renderNode(Icon, leftIcon)}
@@ -133,10 +130,7 @@ class Input extends React.Component {
             style={StyleSheet.flatten([
               styles.input,
               inputStyle,
-              disabled &&
-                (disabledInputStyles
-                  ? disabledInputStyles
-                  : styles.disabledInput),
+              disabled && (disabledInputStyles || styles.disabledInput),
             ])}
           />
 
@@ -145,10 +139,7 @@ class Input extends React.Component {
               style={StyleSheet.flatten([
                 styles.iconContainer,
                 rightIconContainerStyle,
-                disabled &&
-                  (disabledIconStyles
-                    ? disabledIconStyles
-                    : styles.disabledIcon),
+                disabled && (disabledIconStyles || styles.disabledIcon),
               ])}
             >
               {renderNode(Icon, rightIcon)}
