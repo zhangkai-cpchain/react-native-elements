@@ -61,8 +61,6 @@ class Input extends React.Component {
     const {
       containerStyle,
       disabled,
-      disabledStyles,
-      disabledIconStyles,
       disabledInputStyles,
       inputContainerStyle,
       leftIcon,
@@ -91,7 +89,7 @@ class Input extends React.Component {
         style={StyleSheet.flatten([
           styles.container,
           containerStyle,
-          disabled && (disabledStyles || styles.disabled),
+          disabled && styles.disabled,
         ])}
       >
         {renderText(
@@ -112,7 +110,7 @@ class Input extends React.Component {
               style={StyleSheet.flatten([
                 styles.iconContainer,
                 leftIconContainerStyle,
-                disabled && (disabledIconStyles || styles.disabledIcon),
+                disabled && styles.disabledIcon,
               ])}
             >
               {renderNode(Icon, leftIcon)}
@@ -139,7 +137,7 @@ class Input extends React.Component {
               style={StyleSheet.flatten([
                 styles.iconContainer,
                 rightIconContainerStyle,
-                disabled && (disabledIconStyles || styles.disabledIcon),
+                disabled && styles.disabledIcon,
               ])}
             >
               {renderNode(Icon, rightIcon)}
@@ -166,8 +164,6 @@ class Input extends React.Component {
 Input.propTypes = {
   containerStyle: ViewPropTypes.style,
   disabled: PropTypes.bool,
-  disabledStyles: ViewPropTypes.style,
-  disabledIconStyles: ViewPropTypes.style,
   disabledInputStyles: ViewPropTypes.style,
   inputContainerStyle: ViewPropTypes.style,
   leftIcon: nodeType,
