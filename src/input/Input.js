@@ -61,7 +61,7 @@ class Input extends React.Component {
     const {
       containerStyle,
       disabled,
-      disabledInputStyles,
+      disabledInputStyle,
       inputContainerStyle,
       leftIcon,
       leftIconContainerStyle,
@@ -85,13 +85,7 @@ class Input extends React.Component {
     });
 
     return (
-      <View
-        style={StyleSheet.flatten([
-          styles.container,
-          containerStyle,
-          disabled && styles.disabled,
-        ])}
-      >
+      <View style={StyleSheet.flatten([styles.container, containerStyle])}>
         {renderText(
           label,
           { style: labelStyle, ...labelProps },
@@ -110,7 +104,6 @@ class Input extends React.Component {
               style={StyleSheet.flatten([
                 styles.iconContainer,
                 leftIconContainerStyle,
-                disabled && styles.disabledIcon,
               ])}
             >
               {renderNode(Icon, leftIcon)}
@@ -128,7 +121,7 @@ class Input extends React.Component {
             style={StyleSheet.flatten([
               styles.input,
               inputStyle,
-              disabled && (disabledInputStyles || styles.disabledInput),
+              disabled && (disabledInputStyle || styles.disabledInput),
             ])}
           />
 
@@ -137,7 +130,6 @@ class Input extends React.Component {
               style={StyleSheet.flatten([
                 styles.iconContainer,
                 rightIconContainerStyle,
-                disabled && styles.disabledIcon,
               ])}
             >
               {renderNode(Icon, rightIcon)}
@@ -164,7 +156,7 @@ class Input extends React.Component {
 Input.propTypes = {
   containerStyle: ViewPropTypes.style,
   disabled: PropTypes.bool,
-  disabledInputStyles: ViewPropTypes.style,
+  disabledInputStyle: ViewPropTypes.style,
   inputContainerStyle: ViewPropTypes.style,
   leftIcon: nodeType,
   leftIconContainerStyle: ViewPropTypes.style,
@@ -186,13 +178,9 @@ const styles = {
     width: '100%',
     paddingHorizontal: 10,
   },
-  disabled: {
+  disabledInput: {
     opacity: 0.5,
   },
-  disabledIcon: {
-    opacity: 0.5,
-  },
-  disabledInput: {},
   inputContainer: theme => ({
     flexDirection: 'row',
     borderBottomWidth: 1,
