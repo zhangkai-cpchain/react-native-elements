@@ -813,7 +813,7 @@ export interface InputProps extends TextInputProperties {
   /**
    * Style of the input field when disabled
    */
-  disabledInputStyle?: StyleProp<ViewStyle>;
+  disabledInputStyle?: StyleProp<TextStyle>;
 
   /**
    * Styling for Input Component Container (optional)

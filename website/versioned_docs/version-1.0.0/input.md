@@ -52,7 +52,7 @@ import { Input } from 'react-native-elements';
 
 - [`containerStyle`](#containerstyle)
 - [`disabled`](#disabled)
-- [`disabledInputStyles`](#disabledInputStyles)
+- [`disabledInputStyle`](#disabledInputStyle)
 - [`inputContainerStyle`](#inputcontainerstyle)
 - [`errorMessage`](#errormessage)
 - [`errorStyle`](#errorstyle)
@@ -91,7 +91,7 @@ disables the input component
 
 ---
 
-### `disabledInputStyles`
+### `disabledInputStyle`
 
 disabled styles that will be passed to the `style` props of the React Native `TextInput` (optional)
 

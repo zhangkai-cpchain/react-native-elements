@@ -121,7 +121,8 @@ class Input extends React.Component {
             style={StyleSheet.flatten([
               styles.input,
               inputStyle,
-              disabled && (disabledInputStyle || styles.disabledInput),
+              disabled && styles.disabledInput,
+              disabled && disabledInputStyle,
             ])}
           />
 
@@ -156,7 +157,7 @@ class Input extends React.Component {
 Input.propTypes = {
   containerStyle: ViewPropTypes.style,
   disabled: PropTypes.bool,
-  disabledInputStyle: ViewPropTypes.style,
+  disabledInputStyle: TextPropTypes.style,
   inputContainerStyle: ViewPropTypes.style,
   leftIcon: nodeType,
   leftIconContainerStyle: ViewPropTypes.style,
