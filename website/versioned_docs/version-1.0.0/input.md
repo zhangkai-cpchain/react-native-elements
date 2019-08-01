@@ -51,8 +51,6 @@ import { Input } from 'react-native-elements';
 > along with the following:
 
 - [`containerStyle`](#containerstyle)
-- [`disabled`](#disabled)
-- [`disabledInputStyle`](#disabledInputStyle)
 - [`inputContainerStyle`](#inputcontainerstyle)
 - [`errorMessage`](#errormessage)
 - [`errorStyle`](#errorstyle)
@@ -74,26 +72,6 @@ import { Input } from 'react-native-elements';
 ### `containerStyle`
 
 styling for view containing the label, the input and the error message
-
-|        Type         | Default |
-| :-----------------: | :-----: |
-| View style (object) |  none   |
-
----
-
-### `disabled`
-
-disables the input component
-
-|  Type   | Default |
-| :-----: | :-----: |
-| Boolean |  false  |
-
----
-
-### `disabledInputStyle`
-
-disabled styles that will be passed to the `style` props of the React Native `TextInput` (optional)
 
 |        Type         | Default |
 | :-----------------: | :-----: |
