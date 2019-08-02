@@ -268,6 +268,7 @@ const styles = StyleSheet.create({
   },
   leftIconContainerStyle: {
     marginLeft: 8,
+    marginRight: 0,
   },
   buttonTextStyle: {
     color: '#007aff',

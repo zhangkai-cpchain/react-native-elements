@@ -45,6 +45,7 @@ exports[`Default SearchBar component Props clearIcon and without clearIcon 1`] =
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -117,6 +118,7 @@ exports[`Default SearchBar component Props clearIcon and without custom clearIco
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -189,6 +191,7 @@ exports[`Default SearchBar component Props clearIcon and without no clearIcon 1`
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -254,6 +257,7 @@ exports[`Default SearchBar component Props searchIcon and without custom searchI
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -319,6 +323,7 @@ exports[`Default SearchBar component Props searchIcon and without no searchIcon 
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -391,6 +396,7 @@ exports[`Default SearchBar component Props searchIcon and without searchIcon 1`]
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -464,6 +470,7 @@ exports[`Default SearchBar component Props showLoading, loadingProps 1`] = `
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -549,6 +556,7 @@ exports[`Default SearchBar component should render with a preset value 1`] = `
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -629,6 +637,7 @@ exports[`Default SearchBar component should render without issues 1`] = `
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}

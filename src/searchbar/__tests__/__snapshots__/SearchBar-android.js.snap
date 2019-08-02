@@ -44,6 +44,7 @@ exports[`Android SearchBar component Props cancel button Disabled cancelButtonPr
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -62,6 +63,7 @@ exports[`Android SearchBar component Props cancel button Disabled cancelButtonPr
     }
     rightIconContainerStyle={
       Object {
+        "marginLeft": 0,
         "marginRight": 8,
       }
     }
@@ -158,6 +160,7 @@ exports[`Android SearchBar component Props cancel button Disabled cancelButtonPr
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -176,6 +179,7 @@ exports[`Android SearchBar component Props cancel button Disabled cancelButtonPr
     }
     rightIconContainerStyle={
       Object {
+        "marginLeft": 0,
         "marginRight": 8,
       }
     }
@@ -272,6 +276,7 @@ exports[`Android SearchBar component Props cancel button Enabled cancelButtonPro
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -290,6 +295,7 @@ exports[`Android SearchBar component Props cancel button Enabled cancelButtonPro
     }
     rightIconContainerStyle={
       Object {
+        "marginLeft": 0,
         "marginRight": 8,
       }
     }
@@ -376,6 +382,7 @@ exports[`Android SearchBar component Props cancel button Enabled cancelButtonTit
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -394,6 +401,7 @@ exports[`Android SearchBar component Props cancel button Enabled cancelButtonTit
     }
     rightIconContainerStyle={
       Object {
+        "marginLeft": 0,
         "marginRight": 8,
       }
     }
@@ -479,6 +487,7 @@ exports[`Android SearchBar component Props clearIcon and without clearIcon 1`] =
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -497,6 +506,7 @@ exports[`Android SearchBar component Props clearIcon and without clearIcon 1`] =
     }
     rightIconContainerStyle={
       Object {
+        "marginLeft": 0,
         "marginRight": 8,
       }
     }
@@ -582,6 +592,7 @@ exports[`Android SearchBar component Props clearIcon and without custom clearIco
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -600,6 +611,7 @@ exports[`Android SearchBar component Props clearIcon and without custom clearIco
     }
     rightIconContainerStyle={
       Object {
+        "marginLeft": 0,
         "marginRight": 8,
       }
     }
@@ -685,6 +697,7 @@ exports[`Android SearchBar component Props clearIcon and without no clearIcon 1`
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -703,6 +716,7 @@ exports[`Android SearchBar component Props clearIcon and without no clearIcon 1`
     }
     rightIconContainerStyle={
       Object {
+        "marginLeft": 0,
         "marginRight": 8,
       }
     }
@@ -781,6 +795,7 @@ exports[`Android SearchBar component Props searchIcon and without custom searchI
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -799,6 +814,7 @@ exports[`Android SearchBar component Props searchIcon and without custom searchI
     }
     rightIconContainerStyle={
       Object {
+        "marginLeft": 0,
         "marginRight": 8,
       }
     }
@@ -878,6 +894,7 @@ exports[`Android SearchBar component Props searchIcon and without no searchIcon 
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -896,6 +913,7 @@ exports[`Android SearchBar component Props searchIcon and without no searchIcon 
     }
     rightIconContainerStyle={
       Object {
+        "marginLeft": 0,
         "marginRight": 8,
       }
     }
@@ -981,6 +999,7 @@ exports[`Android SearchBar component Props searchIcon and without searchIcon 1`]
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     lightTheme={true}
@@ -1000,6 +1019,7 @@ exports[`Android SearchBar component Props searchIcon and without searchIcon 1`]
     }
     rightIconContainerStyle={
       Object {
+        "marginLeft": 0,
         "marginRight": 8,
       }
     }
@@ -1086,6 +1106,7 @@ exports[`Android SearchBar component Props showLoading, loadingProps 1`] = `
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -1117,6 +1138,7 @@ exports[`Android SearchBar component Props showLoading, loadingProps 1`] = `
     }
     rightIconContainerStyle={
       Object {
+        "marginLeft": 0,
         "marginRight": 8,
       }
     }
@@ -1202,6 +1224,7 @@ exports[`Android SearchBar component should render with a preset value 1`] = `
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -1228,6 +1251,7 @@ exports[`Android SearchBar component should render with a preset value 1`] = `
     }
     rightIconContainerStyle={
       Object {
+        "marginLeft": 0,
         "marginRight": 8,
       }
     }
@@ -1313,6 +1337,7 @@ exports[`Android SearchBar component should render without issues 1`] = `
     leftIconContainerStyle={
       Object {
         "marginLeft": 8,
+        "marginRight": 0,
       }
     }
     onBlur={[Function]}
@@ -1331,6 +1356,7 @@ exports[`Android SearchBar component should render without issues 1`] = `
     }
     rightIconContainerStyle={
       Object {
+        "marginLeft": 0,
         "marginRight": 8,
       }
     }

@@ -8,6 +8,7 @@ import {
   Easing,
   Platform,
   StyleSheet,
+  I18nManager,
 } from 'react-native';
 
 import { nodeType, renderNode } from '../helpers';
@@ -101,6 +102,9 @@ class Input extends React.Component {
             <View
               style={StyleSheet.flatten([
                 styles.iconContainer,
+                {
+                  marginRight: 15,
+                },
                 leftIconContainerStyle,
               ])}
             >
@@ -122,6 +126,9 @@ class Input extends React.Component {
             <View
               style={StyleSheet.flatten([
                 styles.iconContainer,
+                {
+                  marginLeft: 15,
+                },
                 rightIconContainerStyle,
               ])}
             >
@@ -179,11 +186,11 @@ const styles = {
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 15,
   },
   input: {
     alignSelf: 'center',
     color: 'black',
+    textAlign: I18nManager.isRTL ? 'right' : 'left',
     fontSize: 18,
     flex: 1,
     minHeight: 40,
@@ -192,9 +199,11 @@ const styles = {
     margin: 5,
     fontSize: 12,
     color: theme.colors.error,
+    textAlign: 'left',
   }),
   label: theme => ({
     fontSize: 16,
+    textAlign: 'left',
     color: theme.colors.grey3,
     ...Platform.select({
       android: {

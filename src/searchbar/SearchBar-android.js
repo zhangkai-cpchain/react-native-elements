@@ -197,9 +197,11 @@ const styles = StyleSheet.create({
   },
   rightIconContainerStyle: {
     marginRight: 8,
+    marginLeft: 0,
   },
   leftIconContainerStyle: {
     marginLeft: 8,
+    marginRight: 0,
   },
 });
 

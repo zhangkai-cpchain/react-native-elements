@@ -34,6 +34,7 @@ exports[`Input component Props containerStyle 1`] = `
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"
@@ -77,6 +78,7 @@ exports[`Input component Props errorMessage and style errorMessage 1`] = `
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"
@@ -89,6 +91,7 @@ exports[`Input component Props errorMessage and style errorMessage 1`] = `
         "color": "#ff190c",
         "fontSize": 12,
         "margin": 5,
+        "textAlign": "left",
       }
     }
   >
@@ -131,6 +134,7 @@ exports[`Input component Props errorMessage and style errorStyle 1`] = `
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"
@@ -143,6 +147,7 @@ exports[`Input component Props errorMessage and style errorStyle 1`] = `
         "color": "#ff190c",
         "fontSize": 12,
         "margin": 5,
+        "textAlign": "left",
         "width": 200,
       }
     }
@@ -184,6 +189,7 @@ exports[`Input component Props inputComponent 1`] = `
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"
@@ -228,6 +234,7 @@ exports[`Input component Props inputContainerStyle 1`] = `
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"
@@ -271,6 +278,7 @@ exports[`Input component Props inputStyle 1`] = `
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
           "width": 200,
         }
       }
@@ -296,6 +304,7 @@ exports[`Input component Props label and styles label 1`] = `
         "color": "#86939e",
         "fontSize": 16,
         "fontWeight": "bold",
+        "textAlign": "left",
       }
     }
   >
@@ -326,6 +335,7 @@ exports[`Input component Props label and styles label 1`] = `
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"
@@ -376,6 +386,7 @@ exports[`Input component Props label and styles label as component 1`] = `
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"
@@ -400,6 +411,7 @@ exports[`Input component Props label and styles labelStyle 1`] = `
         "color": "#86939e",
         "fontSize": 16,
         "fontWeight": "bold",
+        "textAlign": "left",
         "width": 200,
       }
     }
@@ -431,6 +443,7 @@ exports[`Input component Props label and styles labelStyle 1`] = `
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"
@@ -470,7 +483,7 @@ exports[`Input component Props leftIcon and styles leftIcon 1`] = `
           "alignItems": "center",
           "height": 40,
           "justifyContent": "center",
-          "marginLeft": 15,
+          "marginRight": 15,
         }
       }
     >
@@ -489,6 +502,7 @@ exports[`Input component Props leftIcon and styles leftIcon 1`] = `
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"
@@ -528,7 +542,7 @@ exports[`Input component Props leftIcon and styles leftIconContainerStyle 1`] = 
           "alignItems": "center",
           "height": 40,
           "justifyContent": "center",
-          "marginLeft": 15,
+          "marginRight": 15,
           "width": 200,
         }
       }
@@ -548,6 +562,7 @@ exports[`Input component Props leftIcon and styles leftIconContainerStyle 1`] = 
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"
@@ -592,6 +607,7 @@ exports[`Input component Props placeholder 1`] = `
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"
@@ -635,6 +651,7 @@ exports[`Input component Props rightIcon and styles rightIcon 1`] = `
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"
@@ -693,6 +710,7 @@ exports[`Input component Props rightIcon and styles rightIconContainerStyle 1`] 
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"
@@ -754,6 +772,7 @@ exports[`Input component should apply values from theme 1`] = `
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"
@@ -798,6 +817,7 @@ exports[`Input component should match snapshot 1`] = `
           "flex": 1,
           "fontSize": 18,
           "minHeight": 40,
+          "textAlign": "left",
         }
       }
       testID="RNE__Input__text-input"

@@ -189,6 +189,7 @@ const styles = {
   },
   leftIconContainerStyle: {
     marginLeft: 8,
+    marginRight: 0,
   },
   containerLight: theme => ({
     borderTopColor: '#e1e1e1',
