@@ -8,11 +8,11 @@ contribute!
 
 Here are some of some of ways you can help:
 
-* [Reporting Bugs](#reporting-bugs)
-* [Suggesting a Feature](#suggesting-a-feature)
-* [Responding to Issues](#responding-to-issues)
-* [Improving the Documentation](#improving-the-documentation)
-* [Implementing Bug Fixes and Improvements](#implementing-bug-fixes-and-improvements)
+- [Reporting Bugs](#reporting-bugs)
+- [Suggesting a Feature](#suggesting-a-feature)
+- [Responding to Issues](#responding-to-issues)
+- [Improving the Documentation](#improving-the-documentation)
+- [Implementing Bug Fixes and Improvements](#implementing-bug-fixes-and-improvements)
 
 ## Reporting Bugs
 
@@ -28,9 +28,9 @@ here's what to do:
    latest.
 
 2. Search the existing
-   [issues](https://github.com/react-native-training/react-native-elements/issues)
+   [issues](https://github.com/react-native-elements/react-native-elements/issues)
    and
-   [pull requests](https://github.com/react-native-training/react-native-elements/pulls)
+   [pull requests](https://github.com/react-native-elements/react-native-elements/pulls)
    for one like what you're seeing. If you see one, add a 👍 reaction (please no
    +1 comments). Read through the comments and see if you can provide anymore
    valuable information to the thread. The more use cases we have, the easier it
@@ -52,11 +52,11 @@ lastly, why you think React Native Elements would benefit from it.
 
 A few things to consider/add:
 
-* As clearly as possible, attach screenshots, concepts of how this feature
+- As clearly as possible, attach screenshots, concepts of how this feature
   should behave
-* Do you have any thoughts on how to implement this feature? Have you done
+- Do you have any thoughts on how to implement this feature? Have you done
   something similar already?
-* Hold off on submitting feature pull requests until the feature has been
+- Hold off on submitting feature pull requests until the feature has been
   discussed. Once the feature has been established and agreed upon, create the
   pull request.
 
@@ -82,11 +82,11 @@ Since all documents are versioned, it might be bit tricky to find which file
 needs changing. You can use the rule below to figure out which file you need to
 edit.
 
-* [Changes for an existing doc on a version not yet released](#changes-for-an-existing-doc-on-a-version-not-yet-released)
-* [Adding documentation for a new component](#adding-documentation-for-a-new-component)
-* [Rewording, adding missed info, or making a typo for a released version](#rewording-adding-missed-info-or-making-a-typo-for-a-released-version)
-* [Editing an existing page that's not docs or components](#editing-an-existing-page-that-s-not-docs-or-components)
-* [Editing a document that appears the same in all versions](#editing-a-document-that-appears-the-same-in-all-versions)
+- [Changes for an existing doc on a version not yet released](#changes-for-an-existing-doc-on-a-version-not-yet-released)
+- [Adding documentation for a new component](#adding-documentation-for-a-new-component)
+- [Rewording, adding missed info, or making a typo for a released version](#rewording-adding-missed-info-or-making-a-typo-for-a-released-version)
+- [Editing an existing page that's not docs or components](#editing-an-existing-page-that-s-not-docs-or-components)
+- [Editing a document that appears the same in all versions](#editing-a-document-that-appears-the-same-in-all-versions)
 
 ### Changes for an existing doc on a version not yet released
 
@@ -153,12 +153,12 @@ guide for you. On Github, we extensively use labels to reflect the content and
 status of issues.
 
 For all issues that are bugs check
-[here](https://github.com/react-native-training/react-native-elements/issues?utf8=✓&q=is%3Aissue+is%3Aopen+label%3A%22%3Aboom%3A++Bug%22+-label%3A%22✅+Fixed+-+Next+Release%22+-label%3A%22📥+PR+Submitted%22).
+[here](https://github.com/react-native-elements/react-native-elements/issues?utf8=✓&q=is%3Aissue+is%3Aopen+label%3A%22%3Aboom%3A++Bug%22+-label%3A%22✅+Fixed+-+Next+Release%22+-label%3A%22📥+PR+Submitted%22).
 
 Improvements are separated into two categories:
 
-* [New components](https://github.com/react-native-training/react-native-elements/issues?utf8=✓&q=is%3Aissue+is%3Aopen+label%3A%22💡New+Component%22+-label%3A%22✅+Fixed+-+Next+Release%22+-label%3A%22📥+PR+Submitted%22+).
-* [Enhancements](https://github.com/react-native-training/react-native-elements/issues?utf8=✓&q=is%3Aissue+is%3Aopen+label%3A%22✨Enhancement%22+-label%3A%22✅+Fixed+-+Next+Release%22+-label%3A%22📥+PR+Submitted%22).
+- [New components](https://github.com/react-native-elements/react-native-elements/issues?utf8=✓&q=is%3Aissue+is%3Aopen+label%3A%22💡New+Component%22+-label%3A%22✅+Fixed+-+Next+Release%22+-label%3A%22📥+PR+Submitted%22+)
+- [Enhancements](https://github.com/react-native-elements/react-native-elements/issues?utf8=✓&q=is%3Aissue+is%3Aopen+label%3A%22✨Enhancement%22+-label%3A%22✅+Fixed+-+Next+Release%22+-label%3A%22📥+PR+Submitted%22)
 
 Check out the [Labels guide](labels.md) for a more descriptive info on our usage
 of labels.
@@ -170,13 +170,13 @@ setup on your local machine:
 
 ### Setup
 
-* Install [Node.js](https://nodejs.org/) if you have not already. (_We suggest
+- Install [Node.js](https://nodejs.org/) if you have not already. (_We suggest
   you to use node v6.x.x_)
-* Fork the **react-native-elements** repo
-  [here](https://github.com/react-native-training/react-native-elements)
-* `git clone <your-forked-repo-url> && cd react-native-elements`
-* `yarn install` OR `npm install`
-* `npm test`
+- Fork the **react-native-elements** repo
+  [here](https://github.com/react-native-elements/react-native-elements)
+- `git clone <your-forked-repo-url> && cd react-native-elements`
+- `yarn install` OR `npm install`
+- `npm test`
 
 One you have done this, create a new branch with a name that loosely describes
 the issue on which you will be working. Once you think you have the addressed

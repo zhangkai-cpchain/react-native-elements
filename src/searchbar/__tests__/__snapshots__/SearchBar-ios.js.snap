@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`iOS SearchBar component should render when cancel button is disabled 1`] = `
-<Component
+exports[`iOS SearchBar component Props cancel button Disabled cancelButtonProps 1`] = `
+<View
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#f5f5f5",
       "flexDirection": "row",
       "overflow": "hidden",
       "paddingBottom": 13,
       "paddingTop": 13,
-      "width": "100%",
     }
   }
 >
   <ForwardRef(Themed.Input)
     containerStyle={
       Object {
-        "width": "100%",
+        "paddingHorizontal": 0,
       }
     }
     inputContainerStyle={
@@ -24,14 +24,15 @@ exports[`iOS SearchBar component should render when cancel button is disabled 1`
         "backgroundColor": "#dcdce1",
         "borderBottomWidth": 0,
         "borderRadius": 9,
-        "height": 36,
-        "marginLeft": 15,
-        "marginRight": 15,
+        "marginLeft": 8,
+        "marginRight": 8,
+        "minHeight": 36,
       }
     }
     inputStyle={
       Object {
         "marginLeft": 6,
+        "overflow": "hidden",
       }
     }
     leftIcon={
@@ -54,7 +55,7 @@ exports[`iOS SearchBar component should render when cancel button is disabled 1`
     onFocus={[Function]}
     placeholderTextColor="#7d7d7d"
     rightIcon={
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -68,13 +69,52 @@ exports[`iOS SearchBar component should render when cancel button is disabled 1`
       }
     }
     testID="searchInput"
+    theme={
+      Object {
+        "colors": Object {
+          "disabled": "hsl(208, 8%, 90%)",
+          "divider": "#bcbbc1",
+          "error": "#ff190c",
+          "grey0": "#393e42",
+          "grey1": "#43484d",
+          "grey2": "#5e6977",
+          "grey3": "#86939e",
+          "grey4": "#bdc6cf",
+          "grey5": "#e1e8ee",
+          "greyOutline": "#bbb",
+          "platform": Object {
+            "android": Object {
+              "error": "#f44336",
+              "primary": "#2196f3",
+              "secondary": "#9C27B0",
+              "success": "#4caf50",
+              "warning": "#ffeb3b",
+            },
+            "ios": Object {
+              "error": "#ff3b30",
+              "primary": "#007aff",
+              "secondary": "#5856d6",
+              "success": "#4cd964",
+              "warning": "#ffcc00",
+            },
+          },
+          "primary": "#2089dc",
+          "searchBg": "#303337",
+          "secondary": "#8F0CE8",
+          "success": "#52c41a",
+          "warning": "#faad14",
+        },
+      }
+    }
     value=""
   />
-  <Component
+  <View
     onLayout={[Function]}
     style={
       Object {
-        "marginLeft": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": -0,
       }
     }
   >
@@ -84,7 +124,7 @@ exports[`iOS SearchBar component should render when cancel button is disabled 1`
       disabled={true}
       onPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             undefined,
@@ -93,10 +133,7 @@ exports[`iOS SearchBar component should render when cancel button is disabled 1`
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
           disabled={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -115,29 +152,29 @@ exports[`iOS SearchBar component should render when cancel button is disabled 1`
         >
           Cancel
         </Text>
-      </Component>
+      </View>
     </TouchableOpacity>
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
-exports[`iOS SearchBar component should render when cancel button is disabled with custom style 1`] = `
-<Component
+exports[`iOS SearchBar component Props cancel button Disabled cancelButtonProps disabled styles 1`] = `
+<View
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#f5f5f5",
       "flexDirection": "row",
       "overflow": "hidden",
       "paddingBottom": 13,
       "paddingTop": 13,
-      "width": "100%",
     }
   }
 >
   <ForwardRef(Themed.Input)
     containerStyle={
       Object {
-        "width": "100%",
+        "paddingHorizontal": 0,
       }
     }
     inputContainerStyle={
@@ -145,14 +182,15 @@ exports[`iOS SearchBar component should render when cancel button is disabled wi
         "backgroundColor": "#dcdce1",
         "borderBottomWidth": 0,
         "borderRadius": 9,
-        "height": 36,
-        "marginLeft": 15,
-        "marginRight": 15,
+        "marginLeft": 8,
+        "marginRight": 8,
+        "minHeight": 36,
       }
     }
     inputStyle={
       Object {
         "marginLeft": 6,
+        "overflow": "hidden",
       }
     }
     leftIcon={
@@ -175,7 +213,7 @@ exports[`iOS SearchBar component should render when cancel button is disabled wi
     onFocus={[Function]}
     placeholderTextColor="#7d7d7d"
     rightIcon={
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -189,13 +227,52 @@ exports[`iOS SearchBar component should render when cancel button is disabled wi
       }
     }
     testID="searchInput"
+    theme={
+      Object {
+        "colors": Object {
+          "disabled": "hsl(208, 8%, 90%)",
+          "divider": "#bcbbc1",
+          "error": "#ff190c",
+          "grey0": "#393e42",
+          "grey1": "#43484d",
+          "grey2": "#5e6977",
+          "grey3": "#86939e",
+          "grey4": "#bdc6cf",
+          "grey5": "#e1e8ee",
+          "greyOutline": "#bbb",
+          "platform": Object {
+            "android": Object {
+              "error": "#f44336",
+              "primary": "#2196f3",
+              "secondary": "#9C27B0",
+              "success": "#4caf50",
+              "warning": "#ffeb3b",
+            },
+            "ios": Object {
+              "error": "#ff3b30",
+              "primary": "#007aff",
+              "secondary": "#5856d6",
+              "success": "#4cd964",
+              "warning": "#ffcc00",
+            },
+          },
+          "primary": "#2089dc",
+          "searchBg": "#303337",
+          "secondary": "#8F0CE8",
+          "success": "#52c41a",
+          "warning": "#faad14",
+        },
+      }
+    }
     value=""
   />
-  <Component
+  <View
     onLayout={[Function]}
     style={
       Object {
-        "marginLeft": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": -0,
       }
     }
   >
@@ -205,7 +282,7 @@ exports[`iOS SearchBar component should render when cancel button is disabled wi
       disabled={true}
       onPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             undefined,
@@ -216,10 +293,7 @@ exports[`iOS SearchBar component should render when cancel button is disabled wi
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
           disabled={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -238,29 +312,29 @@ exports[`iOS SearchBar component should render when cancel button is disabled wi
         >
           Cancel
         </Text>
-      </Component>
+      </View>
     </TouchableOpacity>
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
-exports[`iOS SearchBar component should render with a custom Cancel button 1`] = `
-<Component
+exports[`iOS SearchBar component Props cancel button Enabled cancelButtonProps 1`] = `
+<View
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#f5f5f5",
       "flexDirection": "row",
       "overflow": "hidden",
       "paddingBottom": 13,
       "paddingTop": 13,
-      "width": "100%",
     }
   }
 >
   <ForwardRef(Themed.Input)
     containerStyle={
       Object {
-        "width": "100%",
+        "paddingHorizontal": 0,
       }
     }
     inputContainerStyle={
@@ -268,14 +342,15 @@ exports[`iOS SearchBar component should render with a custom Cancel button 1`] =
         "backgroundColor": "#dcdce1",
         "borderBottomWidth": 0,
         "borderRadius": 9,
-        "height": 36,
-        "marginLeft": 15,
-        "marginRight": 15,
+        "marginLeft": 8,
+        "marginRight": 8,
+        "minHeight": 36,
       }
     }
     inputStyle={
       Object {
         "marginLeft": 6,
+        "overflow": "hidden",
       }
     }
     leftIcon={
@@ -298,7 +373,7 @@ exports[`iOS SearchBar component should render with a custom Cancel button 1`] =
     onFocus={[Function]}
     placeholderTextColor="#7d7d7d"
     rightIcon={
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -312,13 +387,52 @@ exports[`iOS SearchBar component should render with a custom Cancel button 1`] =
       }
     }
     testID="searchInput"
+    theme={
+      Object {
+        "colors": Object {
+          "disabled": "hsl(208, 8%, 90%)",
+          "divider": "#bcbbc1",
+          "error": "#ff190c",
+          "grey0": "#393e42",
+          "grey1": "#43484d",
+          "grey2": "#5e6977",
+          "grey3": "#86939e",
+          "grey4": "#bdc6cf",
+          "grey5": "#e1e8ee",
+          "greyOutline": "#bbb",
+          "platform": Object {
+            "android": Object {
+              "error": "#f44336",
+              "primary": "#2196f3",
+              "secondary": "#9C27B0",
+              "success": "#4caf50",
+              "warning": "#ffeb3b",
+            },
+            "ios": Object {
+              "error": "#ff3b30",
+              "primary": "#007aff",
+              "secondary": "#5856d6",
+              "success": "#4cd964",
+              "warning": "#ffcc00",
+            },
+          },
+          "primary": "#2089dc",
+          "searchBg": "#303337",
+          "secondary": "#8F0CE8",
+          "success": "#52c41a",
+          "warning": "#faad14",
+        },
+      }
+    }
     value=""
   />
-  <Component
+  <View
     onLayout={[Function]}
     style={
       Object {
-        "marginLeft": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": -0,
       }
     }
   >
@@ -327,7 +441,7 @@ exports[`iOS SearchBar component should render with a custom Cancel button 1`] =
       activeOpacity={0.2}
       onPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             Object {
@@ -338,9 +452,6 @@ exports[`iOS SearchBar component should render with a custom Cancel button 1`] =
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -361,29 +472,29 @@ exports[`iOS SearchBar component should render with a custom Cancel button 1`] =
         >
           Cancel
         </Text>
-      </Component>
+      </View>
     </TouchableOpacity>
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
-exports[`iOS SearchBar component should render with a custom Cancel button title 1`] = `
-<Component
+exports[`iOS SearchBar component Props cancel button Enabled cancelButtonTitle 1`] = `
+<View
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#f5f5f5",
       "flexDirection": "row",
       "overflow": "hidden",
       "paddingBottom": 13,
       "paddingTop": 13,
-      "width": "100%",
     }
   }
 >
   <ForwardRef(Themed.Input)
     containerStyle={
       Object {
-        "width": "100%",
+        "paddingHorizontal": 0,
       }
     }
     inputContainerStyle={
@@ -391,14 +502,15 @@ exports[`iOS SearchBar component should render with a custom Cancel button title
         "backgroundColor": "#dcdce1",
         "borderBottomWidth": 0,
         "borderRadius": 9,
-        "height": 36,
-        "marginLeft": 15,
-        "marginRight": 15,
+        "marginLeft": 8,
+        "marginRight": 8,
+        "minHeight": 36,
       }
     }
     inputStyle={
       Object {
         "marginLeft": 6,
+        "overflow": "hidden",
       }
     }
     leftIcon={
@@ -421,7 +533,7 @@ exports[`iOS SearchBar component should render with a custom Cancel button title
     onFocus={[Function]}
     placeholderTextColor="#7d7d7d"
     rightIcon={
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -448,6 +560,22 @@ exports[`iOS SearchBar component should render with a custom Cancel button title
           "grey4": "#bdc6cf",
           "grey5": "#e1e8ee",
           "greyOutline": "#bbb",
+          "platform": Object {
+            "android": Object {
+              "error": "#f44336",
+              "primary": "#2196f3",
+              "secondary": "#9C27B0",
+              "success": "#4caf50",
+              "warning": "#ffeb3b",
+            },
+            "ios": Object {
+              "error": "#ff3b30",
+              "primary": "#007aff",
+              "secondary": "#5856d6",
+              "success": "#4cd964",
+              "warning": "#ffcc00",
+            },
+          },
           "primary": "#2089dc",
           "searchBg": "#303337",
           "secondary": "#8F0CE8",
@@ -458,11 +586,13 @@ exports[`iOS SearchBar component should render with a custom Cancel button title
     }
     value=""
   />
-  <Component
+  <View
     onLayout={[Function]}
     style={
       Object {
-        "marginLeft": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": -0,
       }
     }
   >
@@ -471,7 +601,7 @@ exports[`iOS SearchBar component should render with a custom Cancel button title
       activeOpacity={0.2}
       onPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             undefined,
@@ -480,9 +610,6 @@ exports[`iOS SearchBar component should render with a custom Cancel button title
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -499,29 +626,29 @@ exports[`iOS SearchBar component should render with a custom Cancel button title
         >
           Annuler
         </Text>
-      </Component>
+      </View>
     </TouchableOpacity>
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
-exports[`iOS SearchBar component should render with a custom clear icon 1`] = `
-<Component
+exports[`iOS SearchBar component Props clearIcon and without clearIcon 1`] = `
+<View
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#f5f5f5",
       "flexDirection": "row",
       "overflow": "hidden",
       "paddingBottom": 13,
       "paddingTop": 13,
-      "width": "100%",
     }
   }
 >
   <ForwardRef(Themed.Input)
     containerStyle={
       Object {
-        "width": "100%",
+        "paddingHorizontal": 0,
       }
     }
     inputContainerStyle={
@@ -529,14 +656,15 @@ exports[`iOS SearchBar component should render with a custom clear icon 1`] = `
         "backgroundColor": "#dcdce1",
         "borderBottomWidth": 0,
         "borderRadius": 9,
-        "height": 36,
-        "marginLeft": 15,
-        "marginRight": 15,
+        "marginLeft": 8,
+        "marginRight": 8,
+        "minHeight": 36,
       }
     }
     inputStyle={
       Object {
         "marginLeft": 6,
+        "overflow": "hidden",
       }
     }
     leftIcon={
@@ -559,7 +687,7 @@ exports[`iOS SearchBar component should render with a custom clear icon 1`] = `
     onFocus={[Function]}
     placeholderTextColor="#7d7d7d"
     rightIcon={
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -586,6 +714,22 @@ exports[`iOS SearchBar component should render with a custom clear icon 1`] = `
           "grey4": "#bdc6cf",
           "grey5": "#e1e8ee",
           "greyOutline": "#bbb",
+          "platform": Object {
+            "android": Object {
+              "error": "#f44336",
+              "primary": "#2196f3",
+              "secondary": "#9C27B0",
+              "success": "#4caf50",
+              "warning": "#ffeb3b",
+            },
+            "ios": Object {
+              "error": "#ff3b30",
+              "primary": "#007aff",
+              "secondary": "#5856d6",
+              "success": "#4cd964",
+              "warning": "#ffcc00",
+            },
+          },
           "primary": "#2089dc",
           "searchBg": "#303337",
           "secondary": "#8F0CE8",
@@ -596,11 +740,13 @@ exports[`iOS SearchBar component should render with a custom clear icon 1`] = `
     }
     value=""
   />
-  <Component
+  <View
     onLayout={[Function]}
     style={
       Object {
-        "marginLeft": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": -0,
       }
     }
   >
@@ -609,7 +755,7 @@ exports[`iOS SearchBar component should render with a custom clear icon 1`] = `
       activeOpacity={0.2}
       onPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             undefined,
@@ -618,9 +764,6 @@ exports[`iOS SearchBar component should render with a custom clear icon 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -637,29 +780,29 @@ exports[`iOS SearchBar component should render with a custom clear icon 1`] = `
         >
           Cancel
         </Text>
-      </Component>
+      </View>
     </TouchableOpacity>
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
-exports[`iOS SearchBar component should render with a custom clear icon component 1`] = `
-<Component
+exports[`iOS SearchBar component Props clearIcon and without custom clearIcon 1`] = `
+<View
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#f5f5f5",
       "flexDirection": "row",
       "overflow": "hidden",
       "paddingBottom": 13,
       "paddingTop": 13,
-      "width": "100%",
     }
   }
 >
   <ForwardRef(Themed.Input)
     containerStyle={
       Object {
-        "width": "100%",
+        "paddingHorizontal": 0,
       }
     }
     inputContainerStyle={
@@ -667,14 +810,15 @@ exports[`iOS SearchBar component should render with a custom clear icon componen
         "backgroundColor": "#dcdce1",
         "borderBottomWidth": 0,
         "borderRadius": 9,
-        "height": 36,
-        "marginLeft": 15,
-        "marginRight": 15,
+        "marginLeft": 8,
+        "marginRight": 8,
+        "minHeight": 36,
       }
     }
     inputStyle={
       Object {
         "marginLeft": 6,
+        "overflow": "hidden",
       }
     }
     leftIcon={
@@ -697,7 +841,7 @@ exports[`iOS SearchBar component should render with a custom clear icon componen
     onFocus={[Function]}
     placeholderTextColor="#7d7d7d"
     rightIcon={
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -724,6 +868,22 @@ exports[`iOS SearchBar component should render with a custom clear icon componen
           "grey4": "#bdc6cf",
           "grey5": "#e1e8ee",
           "greyOutline": "#bbb",
+          "platform": Object {
+            "android": Object {
+              "error": "#f44336",
+              "primary": "#2196f3",
+              "secondary": "#9C27B0",
+              "success": "#4caf50",
+              "warning": "#ffeb3b",
+            },
+            "ios": Object {
+              "error": "#ff3b30",
+              "primary": "#007aff",
+              "secondary": "#5856d6",
+              "success": "#4cd964",
+              "warning": "#ffcc00",
+            },
+          },
           "primary": "#2089dc",
           "searchBg": "#303337",
           "secondary": "#8F0CE8",
@@ -734,11 +894,13 @@ exports[`iOS SearchBar component should render with a custom clear icon componen
     }
     value=""
   />
-  <Component
+  <View
     onLayout={[Function]}
     style={
       Object {
-        "marginLeft": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": -0,
       }
     }
   >
@@ -747,7 +909,7 @@ exports[`iOS SearchBar component should render with a custom clear icon componen
       activeOpacity={0.2}
       onPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             undefined,
@@ -756,9 +918,6 @@ exports[`iOS SearchBar component should render with a custom clear icon componen
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -775,29 +934,29 @@ exports[`iOS SearchBar component should render with a custom clear icon componen
         >
           Cancel
         </Text>
-      </Component>
+      </View>
     </TouchableOpacity>
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
-exports[`iOS SearchBar component should render with a custom methods 1`] = `
-<Component
+exports[`iOS SearchBar component Props clearIcon and without no clearIcon 1`] = `
+<View
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#f5f5f5",
       "flexDirection": "row",
       "overflow": "hidden",
       "paddingBottom": 13,
       "paddingTop": 13,
-      "width": "100%",
     }
   }
 >
   <ForwardRef(Themed.Input)
     containerStyle={
       Object {
-        "width": "100%",
+        "paddingHorizontal": 0,
       }
     }
     inputContainerStyle={
@@ -805,14 +964,15 @@ exports[`iOS SearchBar component should render with a custom methods 1`] = `
         "backgroundColor": "#dcdce1",
         "borderBottomWidth": 0,
         "borderRadius": 9,
-        "height": 36,
-        "marginLeft": 15,
-        "marginRight": 15,
+        "marginLeft": 8,
+        "marginRight": 8,
+        "minHeight": 36,
       }
     }
     inputStyle={
       Object {
         "marginLeft": 6,
+        "overflow": "hidden",
       }
     }
     leftIcon={
@@ -829,13 +989,13 @@ exports[`iOS SearchBar component should render with a custom methods 1`] = `
       }
     }
     onBlur={[Function]}
-    onCancel={[MockFunction]}
+    onCancel={[Function]}
     onChangeText={[Function]}
-    onClear={[MockFunction]}
+    onClear={[Function]}
     onFocus={[Function]}
     placeholderTextColor="#7d7d7d"
     rightIcon={
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -862,6 +1022,22 @@ exports[`iOS SearchBar component should render with a custom methods 1`] = `
           "grey4": "#bdc6cf",
           "grey5": "#e1e8ee",
           "greyOutline": "#bbb",
+          "platform": Object {
+            "android": Object {
+              "error": "#f44336",
+              "primary": "#2196f3",
+              "secondary": "#9C27B0",
+              "success": "#4caf50",
+              "warning": "#ffeb3b",
+            },
+            "ios": Object {
+              "error": "#ff3b30",
+              "primary": "#007aff",
+              "secondary": "#5856d6",
+              "success": "#4cd964",
+              "warning": "#ffcc00",
+            },
+          },
           "primary": "#2089dc",
           "searchBg": "#303337",
           "secondary": "#8F0CE8",
@@ -872,11 +1048,13 @@ exports[`iOS SearchBar component should render with a custom methods 1`] = `
     }
     value=""
   />
-  <Component
+  <View
     onLayout={[Function]}
     style={
       Object {
-        "marginLeft": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": -0,
       }
     }
   >
@@ -885,7 +1063,7 @@ exports[`iOS SearchBar component should render with a custom methods 1`] = `
       activeOpacity={0.2}
       onPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             undefined,
@@ -894,9 +1072,6 @@ exports[`iOS SearchBar component should render with a custom methods 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -913,29 +1088,29 @@ exports[`iOS SearchBar component should render with a custom methods 1`] = `
         >
           Cancel
         </Text>
-      </Component>
+      </View>
     </TouchableOpacity>
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
-exports[`iOS SearchBar component should render with a custom search icon 1`] = `
-<Component
+exports[`iOS SearchBar component Props searchIcon and without custom searchIcon 1`] = `
+<View
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#f5f5f5",
       "flexDirection": "row",
       "overflow": "hidden",
       "paddingBottom": 13,
       "paddingTop": 13,
-      "width": "100%",
     }
   }
 >
   <ForwardRef(Themed.Input)
     containerStyle={
       Object {
-        "width": "100%",
+        "paddingHorizontal": 0,
       }
     }
     inputContainerStyle={
@@ -943,14 +1118,310 @@ exports[`iOS SearchBar component should render with a custom search icon 1`] = `
         "backgroundColor": "#dcdce1",
         "borderBottomWidth": 0,
         "borderRadius": 9,
-        "height": 36,
-        "marginLeft": 15,
-        "marginRight": 15,
+        "marginLeft": 8,
+        "marginRight": 8,
+        "minHeight": 36,
       }
     }
     inputStyle={
       Object {
         "marginLeft": 6,
+        "overflow": "hidden",
+      }
+    }
+    leftIcon={<View />}
+    leftIconContainerStyle={
+      Object {
+        "marginLeft": 8,
+      }
+    }
+    onBlur={[Function]}
+    onCancel={[Function]}
+    onChangeText={[Function]}
+    onClear={[Function]}
+    onFocus={[Function]}
+    placeholderTextColor="#7d7d7d"
+    rightIcon={
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      />
+    }
+    rightIconContainerStyle={
+      Object {
+        "marginRight": 8,
+      }
+    }
+    round={true}
+    testID="searchInput"
+    theme={
+      Object {
+        "colors": Object {
+          "disabled": "hsl(208, 8%, 90%)",
+          "divider": "#bcbbc1",
+          "error": "#ff190c",
+          "grey0": "#393e42",
+          "grey1": "#43484d",
+          "grey2": "#5e6977",
+          "grey3": "#86939e",
+          "grey4": "#bdc6cf",
+          "grey5": "#e1e8ee",
+          "greyOutline": "#bbb",
+          "platform": Object {
+            "android": Object {
+              "error": "#f44336",
+              "primary": "#2196f3",
+              "secondary": "#9C27B0",
+              "success": "#4caf50",
+              "warning": "#ffeb3b",
+            },
+            "ios": Object {
+              "error": "#ff3b30",
+              "primary": "#007aff",
+              "secondary": "#5856d6",
+              "success": "#4cd964",
+              "warning": "#ffcc00",
+            },
+          },
+          "primary": "#2089dc",
+          "searchBg": "#303337",
+          "secondary": "#8F0CE8",
+          "success": "#52c41a",
+          "warning": "#faad14",
+        },
+      }
+    }
+    value=""
+  />
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "opacity": 0,
+        "position": "absolute",
+        "right": -0,
+      }
+    }
+  >
+    <TouchableOpacity
+      accessibilityRole="button"
+      activeOpacity={0.2}
+      onPress={[Function]}
+    >
+      <View
+        style={
+          Array [
+            undefined,
+            undefined,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#007aff",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+              undefined,
+              undefined,
+              undefined,
+            ]
+          }
+        >
+          Cancel
+        </Text>
+      </View>
+    </TouchableOpacity>
+  </View>
+</View>
+`;
+
+exports[`iOS SearchBar component Props searchIcon and without no searchIcon 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#f5f5f5",
+      "flexDirection": "row",
+      "overflow": "hidden",
+      "paddingBottom": 13,
+      "paddingTop": 13,
+    }
+  }
+>
+  <ForwardRef(Themed.Input)
+    containerStyle={
+      Object {
+        "paddingHorizontal": 0,
+      }
+    }
+    inputContainerStyle={
+      Object {
+        "backgroundColor": "#dcdce1",
+        "borderBottomWidth": 0,
+        "borderRadius": 9,
+        "marginLeft": 8,
+        "marginRight": 8,
+        "minHeight": 36,
+      }
+    }
+    inputStyle={
+      Object {
+        "marginLeft": 6,
+        "overflow": "hidden",
+      }
+    }
+    leftIcon={null}
+    leftIconContainerStyle={
+      Object {
+        "marginLeft": 8,
+      }
+    }
+    onBlur={[Function]}
+    onCancel={[Function]}
+    onChangeText={[Function]}
+    onClear={[Function]}
+    onFocus={[Function]}
+    placeholderTextColor="#7d7d7d"
+    rightIcon={
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      />
+    }
+    rightIconContainerStyle={
+      Object {
+        "marginRight": 8,
+      }
+    }
+    testID="searchInput"
+    theme={
+      Object {
+        "colors": Object {
+          "disabled": "hsl(208, 8%, 90%)",
+          "divider": "#bcbbc1",
+          "error": "#ff190c",
+          "grey0": "#393e42",
+          "grey1": "#43484d",
+          "grey2": "#5e6977",
+          "grey3": "#86939e",
+          "grey4": "#bdc6cf",
+          "grey5": "#e1e8ee",
+          "greyOutline": "#bbb",
+          "platform": Object {
+            "android": Object {
+              "error": "#f44336",
+              "primary": "#2196f3",
+              "secondary": "#9C27B0",
+              "success": "#4caf50",
+              "warning": "#ffeb3b",
+            },
+            "ios": Object {
+              "error": "#ff3b30",
+              "primary": "#007aff",
+              "secondary": "#5856d6",
+              "success": "#4cd964",
+              "warning": "#ffcc00",
+            },
+          },
+          "primary": "#2089dc",
+          "searchBg": "#303337",
+          "secondary": "#8F0CE8",
+          "success": "#52c41a",
+          "warning": "#faad14",
+        },
+      }
+    }
+    value=""
+  />
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "opacity": 0,
+        "position": "absolute",
+        "right": -0,
+      }
+    }
+  >
+    <TouchableOpacity
+      accessibilityRole="button"
+      activeOpacity={0.2}
+      onPress={[Function]}
+    >
+      <View
+        style={
+          Array [
+            undefined,
+            undefined,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#007aff",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+              undefined,
+              undefined,
+              undefined,
+            ]
+          }
+        >
+          Cancel
+        </Text>
+      </View>
+    </TouchableOpacity>
+  </View>
+</View>
+`;
+
+exports[`iOS SearchBar component Props searchIcon and without searchIcon 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#f5f5f5",
+      "flexDirection": "row",
+      "overflow": "hidden",
+      "paddingBottom": 13,
+      "paddingTop": 13,
+    }
+  }
+>
+  <ForwardRef(Themed.Input)
+    containerStyle={
+      Object {
+        "paddingHorizontal": 0,
+      }
+    }
+    inputContainerStyle={
+      Object {
+        "backgroundColor": "#dcdce1",
+        "borderBottomWidth": 0,
+        "borderRadius": 9,
+        "marginLeft": 8,
+        "marginRight": 8,
+        "minHeight": 36,
+      }
+    }
+    inputStyle={
+      Object {
+        "marginLeft": 6,
+        "overflow": "hidden",
       }
     }
     leftIcon={
@@ -966,6 +1437,7 @@ exports[`iOS SearchBar component should render with a custom search icon 1`] = `
         "marginLeft": 8,
       }
     }
+    lightTheme={true}
     onBlur={[Function]}
     onCancel={[Function]}
     onChangeText={[Function]}
@@ -973,7 +1445,7 @@ exports[`iOS SearchBar component should render with a custom search icon 1`] = `
     onFocus={[Function]}
     placeholderTextColor="#7d7d7d"
     rightIcon={
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -1000,6 +1472,22 @@ exports[`iOS SearchBar component should render with a custom search icon 1`] = `
           "grey4": "#bdc6cf",
           "grey5": "#e1e8ee",
           "greyOutline": "#bbb",
+          "platform": Object {
+            "android": Object {
+              "error": "#f44336",
+              "primary": "#2196f3",
+              "secondary": "#9C27B0",
+              "success": "#4caf50",
+              "warning": "#ffeb3b",
+            },
+            "ios": Object {
+              "error": "#ff3b30",
+              "primary": "#007aff",
+              "secondary": "#5856d6",
+              "success": "#4cd964",
+              "warning": "#ffcc00",
+            },
+          },
           "primary": "#2089dc",
           "searchBg": "#303337",
           "secondary": "#8F0CE8",
@@ -1010,11 +1498,13 @@ exports[`iOS SearchBar component should render with a custom search icon 1`] = `
     }
     value=""
   />
-  <Component
+  <View
     onLayout={[Function]}
     style={
       Object {
-        "marginLeft": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": -0,
       }
     }
   >
@@ -1023,7 +1513,7 @@ exports[`iOS SearchBar component should render with a custom search icon 1`] = `
       activeOpacity={0.2}
       onPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             undefined,
@@ -1032,9 +1522,6 @@ exports[`iOS SearchBar component should render with a custom search icon 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1051,161 +1538,30 @@ exports[`iOS SearchBar component should render with a custom search icon 1`] = `
         >
           Cancel
         </Text>
-      </Component>
+      </View>
     </TouchableOpacity>
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
-exports[`iOS SearchBar component should render with a custom search icon component 1`] = `
-<Component
+exports[`iOS SearchBar component Props showLoading, loadingProps 1`] = `
+<View
   style={
     Object {
-      "backgroundColor": "#f5f5f5",
-      "flexDirection": "row",
-      "overflow": "hidden",
-      "paddingBottom": 13,
-      "paddingTop": 13,
-      "width": "100%",
-    }
-  }
->
-  <ForwardRef(Themed.Input)
-    containerStyle={
-      Object {
-        "width": "100%",
-      }
-    }
-    inputContainerStyle={
-      Object {
-        "backgroundColor": "#dcdce1",
-        "borderBottomWidth": 0,
-        "borderRadius": 9,
-        "height": 36,
-        "marginLeft": 15,
-        "marginRight": 15,
-      }
-    }
-    inputStyle={
-      Object {
-        "marginLeft": 6,
-      }
-    }
-    leftIcon={<Component />}
-    leftIconContainerStyle={
-      Object {
-        "marginLeft": 8,
-      }
-    }
-    onBlur={[Function]}
-    onCancel={[Function]}
-    onChangeText={[Function]}
-    onClear={[Function]}
-    onFocus={[Function]}
-    placeholderTextColor="#7d7d7d"
-    rightIcon={
-      <Component
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
-      />
-    }
-    rightIconContainerStyle={
-      Object {
-        "marginRight": 8,
-      }
-    }
-    testID="searchInput"
-    theme={
-      Object {
-        "colors": Object {
-          "disabled": "hsl(208, 8%, 90%)",
-          "divider": "#bcbbc1",
-          "error": "#ff190c",
-          "grey0": "#393e42",
-          "grey1": "#43484d",
-          "grey2": "#5e6977",
-          "grey3": "#86939e",
-          "grey4": "#bdc6cf",
-          "grey5": "#e1e8ee",
-          "greyOutline": "#bbb",
-          "primary": "#2089dc",
-          "searchBg": "#303337",
-          "secondary": "#8F0CE8",
-          "success": "#52c41a",
-          "warning": "#faad14",
-        },
-      }
-    }
-    value=""
-  />
-  <Component
-    onLayout={[Function]}
-    style={
-      Object {
-        "marginLeft": 0,
-      }
-    }
-  >
-    <TouchableOpacity
-      accessibilityRole="button"
-      activeOpacity={0.2}
-      onPress={[Function]}
-    >
-      <Component
-        style={
-          Array [
-            undefined,
-            undefined,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#007aff",
-                "fontSize": 18,
-                "padding": 8,
-                "textAlign": "center",
-              },
-              undefined,
-              undefined,
-              undefined,
-            ]
-          }
-        >
-          Cancel
-        </Text>
-      </Component>
-    </TouchableOpacity>
-  </Component>
-</Component>
-`;
-
-exports[`iOS SearchBar component should render with loading 1`] = `
-<Component
-  style={
-    Object {
+      "alignItems": "center",
       "backgroundColor": "#f5f5f5",
       "flexDirection": "row",
       "height": 70,
       "overflow": "hidden",
       "paddingBottom": 13,
       "paddingTop": 13,
-      "width": "100%",
     }
   }
 >
   <ForwardRef(Themed.Input)
     containerStyle={
       Object {
-        "width": "100%",
+        "paddingHorizontal": 0,
       }
     }
     inputContainerStyle={
@@ -1213,14 +1569,15 @@ exports[`iOS SearchBar component should render with loading 1`] = `
         "backgroundColor": "#dcdce1",
         "borderBottomWidth": 0,
         "borderRadius": 9,
-        "height": 36,
-        "marginLeft": 15,
-        "marginRight": 15,
+        "marginLeft": 8,
+        "marginRight": 8,
+        "minHeight": 36,
       }
     }
     inputStyle={
       Object {
         "marginLeft": 6,
+        "overflow": "hidden",
       }
     }
     leftIcon={
@@ -1243,7 +1600,7 @@ exports[`iOS SearchBar component should render with loading 1`] = `
     onFocus={[Function]}
     placeholderTextColor="#7d7d7d"
     rightIcon={
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -1262,7 +1619,7 @@ exports[`iOS SearchBar component should render with loading 1`] = `
             }
           }
         />
-      </Component>
+      </View>
     }
     rightIconContainerStyle={
       Object {
@@ -1283,6 +1640,22 @@ exports[`iOS SearchBar component should render with loading 1`] = `
           "grey4": "#bdc6cf",
           "grey5": "#e1e8ee",
           "greyOutline": "#bbb",
+          "platform": Object {
+            "android": Object {
+              "error": "#f44336",
+              "primary": "#2196f3",
+              "secondary": "#9C27B0",
+              "success": "#4caf50",
+              "warning": "#ffeb3b",
+            },
+            "ios": Object {
+              "error": "#ff3b30",
+              "primary": "#007aff",
+              "secondary": "#5856d6",
+              "success": "#4cd964",
+              "warning": "#ffcc00",
+            },
+          },
           "primary": "#2089dc",
           "searchBg": "#303337",
           "secondary": "#8F0CE8",
@@ -1293,11 +1666,13 @@ exports[`iOS SearchBar component should render with loading 1`] = `
     }
     value=""
   />
-  <Component
+  <View
     onLayout={[Function]}
     style={
       Object {
-        "marginLeft": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": -0,
       }
     }
   >
@@ -1306,7 +1681,7 @@ exports[`iOS SearchBar component should render with loading 1`] = `
       activeOpacity={0.2}
       onPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             undefined,
@@ -1315,9 +1690,6 @@ exports[`iOS SearchBar component should render with loading 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1334,29 +1706,29 @@ exports[`iOS SearchBar component should render with loading 1`] = `
         >
           Cancel
         </Text>
-      </Component>
+      </View>
     </TouchableOpacity>
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
-exports[`iOS SearchBar component should render without clear icon 1`] = `
-<Component
+exports[`iOS SearchBar component should render with a preset value 1`] = `
+<View
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#f5f5f5",
       "flexDirection": "row",
       "overflow": "hidden",
       "paddingBottom": 13,
       "paddingTop": 13,
-      "width": "100%",
     }
   }
 >
   <ForwardRef(Themed.Input)
     containerStyle={
       Object {
-        "width": "100%",
+        "paddingHorizontal": 0,
       }
     }
     inputContainerStyle={
@@ -1364,14 +1736,15 @@ exports[`iOS SearchBar component should render without clear icon 1`] = `
         "backgroundColor": "#dcdce1",
         "borderBottomWidth": 0,
         "borderRadius": 9,
-        "height": 36,
-        "marginLeft": 15,
-        "marginRight": 15,
+        "marginLeft": 8,
+        "marginRight": 8,
+        "minHeight": 36,
       }
     }
     inputStyle={
       Object {
         "marginLeft": 6,
+        "overflow": "hidden",
       }
     }
     leftIcon={
@@ -1394,13 +1767,21 @@ exports[`iOS SearchBar component should render without clear icon 1`] = `
     onFocus={[Function]}
     placeholderTextColor="#7d7d7d"
     rightIcon={
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
           }
         }
-      />
+      >
+        <Themed.Icon
+          color="#7d7d7d"
+          name="ios-close-circle"
+          onPress={[Function]}
+          size={20}
+          type="ionicon"
+        />
+      </View>
     }
     rightIconContainerStyle={
       Object {
@@ -1421,6 +1802,22 @@ exports[`iOS SearchBar component should render without clear icon 1`] = `
           "grey4": "#bdc6cf",
           "grey5": "#e1e8ee",
           "greyOutline": "#bbb",
+          "platform": Object {
+            "android": Object {
+              "error": "#f44336",
+              "primary": "#2196f3",
+              "secondary": "#9C27B0",
+              "success": "#4caf50",
+              "warning": "#ffeb3b",
+            },
+            "ios": Object {
+              "error": "#ff3b30",
+              "primary": "#007aff",
+              "secondary": "#5856d6",
+              "success": "#4cd964",
+              "warning": "#ffcc00",
+            },
+          },
           "primary": "#2089dc",
           "searchBg": "#303337",
           "secondary": "#8F0CE8",
@@ -1429,13 +1826,15 @@ exports[`iOS SearchBar component should render without clear icon 1`] = `
         },
       }
     }
-    value=""
+    value="Chickens"
   />
-  <Component
+  <View
     onLayout={[Function]}
     style={
       Object {
-        "marginLeft": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": -0,
       }
     }
   >
@@ -1444,7 +1843,7 @@ exports[`iOS SearchBar component should render without clear icon 1`] = `
       activeOpacity={0.2}
       onPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             undefined,
@@ -1453,9 +1852,6 @@ exports[`iOS SearchBar component should render without clear icon 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1472,29 +1868,29 @@ exports[`iOS SearchBar component should render without clear icon 1`] = `
         >
           Cancel
         </Text>
-      </Component>
+      </View>
     </TouchableOpacity>
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
 exports[`iOS SearchBar component should render without issues 1`] = `
-<Component
+<View
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#f5f5f5",
       "flexDirection": "row",
       "overflow": "hidden",
       "paddingBottom": 13,
       "paddingTop": 13,
-      "width": "100%",
     }
   }
 >
   <ForwardRef(Themed.Input)
     containerStyle={
       Object {
-        "width": "100%",
+        "paddingHorizontal": 0,
       }
     }
     inputContainerStyle={
@@ -1502,14 +1898,15 @@ exports[`iOS SearchBar component should render without issues 1`] = `
         "backgroundColor": "#dcdce1",
         "borderBottomWidth": 0,
         "borderRadius": 9,
-        "height": 36,
-        "marginLeft": 15,
-        "marginRight": 15,
+        "marginLeft": 8,
+        "marginRight": 8,
+        "minHeight": 36,
       }
     }
     inputStyle={
       Object {
         "marginLeft": 6,
+        "overflow": "hidden",
       }
     }
     leftIcon={
@@ -1532,7 +1929,7 @@ exports[`iOS SearchBar component should render without issues 1`] = `
     onFocus={[Function]}
     placeholderTextColor="#7d7d7d"
     rightIcon={
-      <Component
+      <View
         style={
           Object {
             "flexDirection": "row",
@@ -1559,6 +1956,22 @@ exports[`iOS SearchBar component should render without issues 1`] = `
           "grey4": "#bdc6cf",
           "grey5": "#e1e8ee",
           "greyOutline": "#bbb",
+          "platform": Object {
+            "android": Object {
+              "error": "#f44336",
+              "primary": "#2196f3",
+              "secondary": "#9C27B0",
+              "success": "#4caf50",
+              "warning": "#ffeb3b",
+            },
+            "ios": Object {
+              "error": "#ff3b30",
+              "primary": "#007aff",
+              "secondary": "#5856d6",
+              "success": "#4cd964",
+              "warning": "#ffcc00",
+            },
+          },
           "primary": "#2089dc",
           "searchBg": "#303337",
           "secondary": "#8F0CE8",
@@ -1569,11 +1982,13 @@ exports[`iOS SearchBar component should render without issues 1`] = `
     }
     value=""
   />
-  <Component
+  <View
     onLayout={[Function]}
     style={
       Object {
-        "marginLeft": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": -0,
       }
     }
   >
@@ -1582,7 +1997,7 @@ exports[`iOS SearchBar component should render without issues 1`] = `
       activeOpacity={0.2}
       onPress={[Function]}
     >
-      <Component
+      <View
         style={
           Array [
             undefined,
@@ -1591,9 +2006,6 @@ exports[`iOS SearchBar component should render without issues 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1610,139 +2022,8 @@ exports[`iOS SearchBar component should render without issues 1`] = `
         >
           Cancel
         </Text>
-      </Component>
+      </View>
     </TouchableOpacity>
-  </Component>
-</Component>
-`;
-
-exports[`iOS SearchBar component should render without search icon 1`] = `
-<Component
-  style={
-    Object {
-      "backgroundColor": "#f5f5f5",
-      "flexDirection": "row",
-      "overflow": "hidden",
-      "paddingBottom": 13,
-      "paddingTop": 13,
-      "width": "100%",
-    }
-  }
->
-  <ForwardRef(Themed.Input)
-    containerStyle={
-      Object {
-        "width": "100%",
-      }
-    }
-    inputContainerStyle={
-      Object {
-        "backgroundColor": "#dcdce1",
-        "borderBottomWidth": 0,
-        "borderRadius": 9,
-        "height": 36,
-        "marginLeft": 15,
-        "marginRight": 15,
-      }
-    }
-    inputStyle={
-      Object {
-        "marginLeft": 6,
-      }
-    }
-    leftIcon={null}
-    leftIconContainerStyle={
-      Object {
-        "marginLeft": 8,
-      }
-    }
-    onBlur={[Function]}
-    onCancel={[Function]}
-    onChangeText={[Function]}
-    onClear={[Function]}
-    onFocus={[Function]}
-    placeholderTextColor="#7d7d7d"
-    rightIcon={
-      <Component
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
-      />
-    }
-    rightIconContainerStyle={
-      Object {
-        "marginRight": 8,
-      }
-    }
-    testID="searchInput"
-    theme={
-      Object {
-        "colors": Object {
-          "disabled": "hsl(208, 8%, 90%)",
-          "divider": "#bcbbc1",
-          "error": "#ff190c",
-          "grey0": "#393e42",
-          "grey1": "#43484d",
-          "grey2": "#5e6977",
-          "grey3": "#86939e",
-          "grey4": "#bdc6cf",
-          "grey5": "#e1e8ee",
-          "greyOutline": "#bbb",
-          "primary": "#2089dc",
-          "searchBg": "#303337",
-          "secondary": "#8F0CE8",
-          "success": "#52c41a",
-          "warning": "#faad14",
-        },
-      }
-    }
-    value=""
-  />
-  <Component
-    onLayout={[Function]}
-    style={
-      Object {
-        "marginLeft": 0,
-      }
-    }
-  >
-    <TouchableOpacity
-      accessibilityRole="button"
-      activeOpacity={0.2}
-      onPress={[Function]}
-    >
-      <Component
-        style={
-          Array [
-            undefined,
-            undefined,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#007aff",
-                "fontSize": 18,
-                "padding": 8,
-                "textAlign": "center",
-              },
-              undefined,
-              undefined,
-              undefined,
-            ]
-          }
-        >
-          Cancel
-        </Text>
-      </Component>
-    </TouchableOpacity>
-  </Component>
-</Component>
+  </View>
+</View>
 `;

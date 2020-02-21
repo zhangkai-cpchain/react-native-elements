@@ -2,9 +2,7 @@
 
 exports[`SocialIcon component should apply values from theme 1`] = `
 <View
-  disabled={false}
-  onLongPress={[Function]}
-  onPress={[Function]}
+  replaceTheme={[Function]}
   style={
     Object {
       "alignItems": "center",
@@ -40,6 +38,22 @@ exports[`SocialIcon component should apply values from theme 1`] = `
         "grey4": "#bdc6cf",
         "grey5": "#e1e8ee",
         "greyOutline": "#bbb",
+        "platform": Object {
+          "android": Object {
+            "error": "#f44336",
+            "primary": "#2196f3",
+            "secondary": "#9C27B0",
+            "success": "#4caf50",
+            "warning": "#ffeb3b",
+          },
+          "ios": Object {
+            "error": "#ff3b30",
+            "primary": "#007aff",
+            "secondary": "#5856d6",
+            "success": "#4cd964",
+            "warning": "#ffcc00",
+          },
+        },
         "primary": "#2089dc",
         "searchBg": "#303337",
         "secondary": "#8F0CE8",
@@ -61,9 +75,7 @@ exports[`SocialIcon component should apply values from theme 1`] = `
     }
   >
     <Text
-      accessible={true}
       allowFontScaling={false}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -87,10 +99,7 @@ exports[`SocialIcon component should apply values from theme 1`] = `
 `;
 
 exports[`SocialIcon component should render light social icon 1`] = `
-<Component
-  disabled={false}
-  onLongPress={[Function]}
-  onPress={[Function]}
+<View
   style={
     Object {
       "alignItems": "center",
@@ -103,7 +112,7 @@ exports[`SocialIcon component should render light social icon 1`] = `
   }
   underlayColor="white"
 >
-  <Component
+  <View
     style={
       Object {
         "alignItems": "center",
@@ -119,15 +128,12 @@ exports[`SocialIcon component should render light social icon 1`] = `
       size={24}
       style={Object {}}
     />
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
 exports[`SocialIcon component should render social icon button 1`] = `
-<Component
-  disabled={false}
-  onLongPress={[Function]}
-  onPress={[Function]}
+<View
   style={
     Object {
       "alignItems": "center",
@@ -149,7 +155,7 @@ exports[`SocialIcon component should render social icon button 1`] = `
   }
   underlayColor="#3b5998"
 >
-  <Component
+  <View
     style={
       Object {
         "alignItems": "center",
@@ -176,15 +182,12 @@ exports[`SocialIcon component should render social icon button 1`] = `
     >
       Sign In With Facebook
     </Themed.Text>
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
 exports[`SocialIcon component should render without issues 1`] = `
-<Component
-  disabled={false}
-  onLongPress={[Function]}
-  onPress={[Function]}
+<View
   style={
     Object {
       "alignItems": "center",
@@ -206,7 +209,7 @@ exports[`SocialIcon component should render without issues 1`] = `
   }
   underlayColor="#00aced"
 >
-  <Component
+  <View
     style={
       Object {
         "alignItems": "center",
@@ -222,6 +225,6 @@ exports[`SocialIcon component should render without issues 1`] = `
       size={24}
       style={Object {}}
     />
-  </Component>
-</Component>
+  </View>
+</View>
 `;

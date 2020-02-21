@@ -20,6 +20,7 @@ const CheckBox = props => {
     checked,
     iconRight,
     title,
+    titleProps,
     center,
     right,
     containerStyle,
@@ -33,9 +34,17 @@ const CheckBox = props => {
     ...attributes
   } = rest;
 
+  const accessibilityStates = [
+    ...(checked ? ['checked'] : []),
+    ...(!checked ? ['unchecked'] : []),
+  ];
+
   return (
     <Component
+      accessibilityRole="checkbox"
+      accessibilityStates={accessibilityStates}
       {...attributes}
+      testID="checkbox"
       onLongPress={onLongPress}
       onPress={onPress}
       style={StyleSheet.flatten([
@@ -64,6 +73,7 @@ const CheckBox = props => {
                   textStyle && textStyle,
                   fontFamily && { fontFamily },
                 ])}
+                {...titleProps}
               >
                 {checked ? checkedTitle || title : title}
               </TextElement>
@@ -73,6 +83,22 @@ const CheckBox = props => {
       </View>
     </Component>
   );
+};
+CheckBox.propTypes = {
+  ...CheckBoxIcon.propTypes,
+  Component: PropTypes.elementType,
+  iconRight: PropTypes.bool,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  titleProps: PropTypes.object,
+  center: PropTypes.bool,
+  right: PropTypes.bool,
+  containerStyle: ViewPropTypes.style,
+  wrapperStyle: ViewPropTypes.style,
+  textStyle: NativeText.propTypes.style,
+  onPress: PropTypes.func,
+  onLongPress: PropTypes.func,
+  checkedTitle: PropTypes.string,
+  fontFamily: PropTypes.string,
 };
 
 CheckBox.defaultProps = {
@@ -85,22 +111,7 @@ CheckBox.defaultProps = {
   uncheckedIcon: 'square-o',
   size: 24,
   Component: TouchableOpacity,
-};
-
-CheckBox.propTypes = {
-  ...CheckBoxIcon.propTypes,
-  Component: PropTypes.any,
-  iconRight: PropTypes.bool,
-  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  center: PropTypes.bool,
-  right: PropTypes.bool,
-  containerStyle: ViewPropTypes.style,
-  wrapperStyle: ViewPropTypes.style,
-  textStyle: NativeText.propTypes.style,
-  onPress: PropTypes.func,
-  onLongPress: PropTypes.func,
-  checkedTitle: PropTypes.string,
-  fontFamily: PropTypes.string,
+  titleProps: {},
 };
 
 const styles = {

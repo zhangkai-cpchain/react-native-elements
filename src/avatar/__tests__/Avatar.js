@@ -126,7 +126,7 @@ describe('Avatar Component', () => {
         />
       );
 
-      expect(error).toBeCalledWith(
+      expect(error).toHaveBeenCalledWith(
         expect.stringContaining(
           'Failed prop type: Invalid prop `size` supplied to `Avatar`'
         )
@@ -222,6 +222,19 @@ describe('Avatar Component', () => {
         />
       );
 
+      expect(toJson(component)).toMatchSnapshot();
+    });
+
+    it("shouldn't show placeholder if not using source", () => {
+      const component = shallow(
+        <Avatar
+          size="medium"
+          overlayContainerStyle={{ backgroundColor: 'pink' }}
+          title="MD"
+        />
+      );
+
+      expect(component.props().style.backgroundColor).toBe('transparent');
       expect(toJson(component)).toMatchSnapshot();
     });
   });

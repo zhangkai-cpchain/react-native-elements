@@ -45,8 +45,8 @@ import { CheckBox } from 'react-native-elements'
 />
 
 <CheckBox
-  checkedIcon={<Image source={require('../checked.png') />}
-  uncheckedIcon={<Image source={require('../unchecked.png') />}
+  checkedIcon={<Image source={require('../checked.png')} />}
+  uncheckedIcon={<Image source={require('../unchecked.png')} />}
   checked={this.state.checked}
   onPress={() => this.setState({checked: !this.state.checked})}
 />
@@ -56,26 +56,27 @@ import { CheckBox } from 'react-native-elements'
 
 ## Props
 
-* [`iconType`](#icontype)
-* [`Component`](#Component)
-* [`checked`](#checked)
-* [`size`](#size)
-* [`iconRight`](#iconright)
-* [`right`](#right)
-* [`center`](#center)
-* [`title`](#title)
-* [`containerStyle`](#containerstyle)
-* [`textStyle`](#textstyle)
-* [`onLongPress`](#onlongpress)
-* [`onLongIconPress`](#onlongiconpress)
-* [`onPress`](#onpress)
-* [`onIconPress`](#oniconpress)
-* [`checkedIcon`](#checkedicon)
-* [`uncheckedIcon`](#uncheckedicon)
-* [`checkedColor`](#checkedcolor)
-* [`uncheckedColor`](#uncheckedcolor)
-* [`checkedTitle`](#checkedtitle)
-* [`fontFamily`](#fontfamily)
+- [`iconType`](#icontype)
+- [`Component`](#Component)
+- [`checked`](#checked)
+- [`size`](#size)
+- [`iconRight`](#iconright)
+- [`right`](#right)
+- [`center`](#center)
+- [`title`](#title)
+- [`titleProps`](#titleprops)
+- [`containerStyle`](#containerstyle)
+- [`textStyle`](#textstyle)
+- [`onLongPress`](#onlongpress)
+- [`onLongIconPress`](#onlongiconpress)
+- [`onPress`](#onpress)
+- [`onIconPress`](#oniconpress)
+- [`checkedIcon`](#checkedicon)
+- [`uncheckedIcon`](#uncheckedicon)
+- [`checkedColor`](#checkedcolor)
+- [`uncheckedColor`](#uncheckedcolor)
+- [`checkedTitle`](#checkedtitle)
+- [`fontFamily`](#fontfamily)
 
 ---
 
@@ -139,11 +140,19 @@ Aligns checkbox to center (optional)
 
 ### `title`
 
-Title of checkbox (required)
+Title of checkbox
 
-|  Type  | Default |
-| :----: | :-----: |
-| string |  none   |
+|               Type               | Default |
+| :------------------------------: | :-----: |
+| string OR React Native Component |  none   |
+
+### `titleProps`
+
+Additional props for the title Text component (optional)
+
+|                                     Type                                     | Default |
+| :--------------------------------------------------------------------------: | :-----: |
+| {[...Text props](https://facebook.github.io/react-native/docs/text#props-1)} |  none   |
 
 ### `containerStyle`
 

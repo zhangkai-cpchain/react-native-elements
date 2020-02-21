@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, Modal, View } from 'react-native';
+import { TouchableOpacity, Modal, View, StatusBar } from 'react-native';
 
-import { ViewPropTypes, withTheme } from '../config/';
+import { ViewPropTypes, withTheme } from '../config';
 import { ScreenWidth, ScreenHeight, isIOS } from '../helpers';
 
 import Triangle from './Triangle';
-import getTooltipCoordinate from './getTooltipCoordinate';
+import getTooltipCoordinate, {
+  getElementVisibleWidth,
+} from './getTooltipCoordinate';
 
 class Tooltip extends React.PureComponent {
   state = {
@@ -93,7 +95,10 @@ class Tooltip extends React.PureComponent {
         style={{
           position: 'absolute',
           top: pastMiddleLine ? yOffset - 13 : yOffset + elementHeight - 2,
-          left: xOffset + elementWidth / 2 - 7.5,
+          left:
+            xOffset +
+            getElementVisibleWidth(elementWidth, xOffset, ScreenWidth) / 2 -
+            7.5,
         }}
       >
         <Triangle
@@ -107,8 +112,9 @@ class Tooltip extends React.PureComponent {
   renderContent = withTooltip => {
     const { popover, withPointer, toggleOnPress, highlightColor } = this.props;
 
-    if (!withTooltip)
+    if (!withTooltip) {
       return this.wrapWithPress(toggleOnPress, this.props.children);
+    }
 
     const { yOffset, xOffset, elementWidth, elementHeight } = this.state;
     const tooltipStyle = this.getTooltipStyle();
@@ -141,6 +147,7 @@ class Tooltip extends React.PureComponent {
   }
 
   getElementPosition = () => {
+    const { skipAndroidStatusBar } = this.props;
     this.renderedElement &&
       this.renderedElement.measure(
         (
@@ -153,7 +160,10 @@ class Tooltip extends React.PureComponent {
         ) => {
           this.setState({
             xOffset: pageOffsetX,
-            yOffset: pageOffsetY,
+            yOffset:
+              isIOS || skipAndroidStatusBar
+                ? pageOffsetY
+                : pageOffsetY - StatusBar.currentHeight,
             elementWidth: width,
             elementHeight: height,
           });
@@ -163,12 +173,23 @@ class Tooltip extends React.PureComponent {
 
   render() {
     const { isVisible } = this.state;
-    const { onClose, withOverlay, onOpen } = this.props;
+    const {
+      onClose,
+      withOverlay,
+      overlayColor,
+      onOpen,
+      ModalComponent,
+    } = this.props;
 
     return (
-      <View collapsable={false} ref={e => (this.renderedElement = e)}>
+      <View
+        collapsable={false}
+        ref={e => {
+          this.renderedElement = e;
+        }}
+      >
         {this.renderContent(false)}
-        <Modal
+        <ModalComponent
           animationType="fade"
           visible={isVisible}
           transparent
@@ -177,13 +198,13 @@ class Tooltip extends React.PureComponent {
           onRequestClose={onClose}
         >
           <TouchableOpacity
-            style={styles.container(withOverlay)}
+            style={styles.container(withOverlay, overlayColor)}
             onPress={this.toggleTooltip}
             activeOpacity={1}
           >
             {this.renderContent(true)}
           </TouchableOpacity>
-        </Modal>
+        </ModalComponent>
       </View>
     );
   }
@@ -200,13 +221,17 @@ Tooltip.propTypes = {
   pointerColor: PropTypes.string,
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
+  overlayColor: PropTypes.string,
   withOverlay: PropTypes.bool,
   backgroundColor: PropTypes.string,
   highlightColor: PropTypes.string,
+  skipAndroidStatusBar: PropTypes.bool,
+  ModalComponent: PropTypes.elementType,
 };
 
 Tooltip.defaultProps = {
   withOverlay: true,
+  overlayColor: 'rgba(250, 250, 250, 0.70)',
   highlightColor: 'transparent',
   withPointer: true,
   toggleOnPress: true,
@@ -216,11 +241,13 @@ Tooltip.defaultProps = {
   backgroundColor: '#617080',
   onClose: () => {},
   onOpen: () => {},
+  skipAndroidStatusBar: false,
+  ModalComponent: Modal,
 };
 
 const styles = {
-  container: withOverlay => ({
-    backgroundColor: withOverlay ? 'rgba(250, 250, 250, 0.70)' : 'transparent',
+  container: (withOverlay, overlayColor) => ({
+    backgroundColor: withOverlay ? overlayColor : 'transparent',
     flex: 1,
   }),
 };

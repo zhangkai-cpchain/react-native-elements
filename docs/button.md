@@ -55,7 +55,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 <Button
   icon={{
-    name: "arrow-right"
+    name: "arrow-right",
     size: 15,
     color: "white"
   }}
@@ -90,26 +90,26 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 > [TouchableOpacity](http://facebook.github.io/react-native/docs/touchableopacity.html#props)
 > (iOS) props
 
-* [`buttonStyle`](#buttonstyle)
-* [`containerStyle`](#containerstyle)
-* [`disabled`](#disabled)
-* [`disabledStyle`](#disabledstyle)
-* [`disabledTitleStyle`](#disabledtitlestyle)
-* [`icon`](#icon)
-* [`iconContainerStyle`](#iconcontainerstyle)
-* [`iconRight`](#iconright)
-* [`linearGradientProps`](#lineargradientprops)
-* [`loading`](#loading)
-* [`loadingProps`](#loadingprops)
-* [`loadingStyle`](#loadingstyle)
-* [`onPress`](#onpress)
-* [`raised`](#raised)
-* [`title`](#title)
-* [`titleProps`](#titleprops)
-* [`titleStyle`](#titlestyle)
-* [`type`](#type)
-* [`TouchableComponent`](#touchablecomponent)
-* [`ViewComponent`](#viewcomponent)
+- [`buttonStyle`](#buttonstyle)
+- [`containerStyle`](#containerstyle)
+- [`disabled`](#disabled)
+- [`disabledStyle`](#disabledstyle)
+- [`disabledTitleStyle`](#disabledtitlestyle)
+- [`icon`](#icon)
+- [`iconContainerStyle`](#iconcontainerstyle)
+- [`iconRight`](#iconright)
+- [`linearGradientProps`](#lineargradientprops)
+- [`loading`](#loading)
+- [`loadingProps`](#loadingprops)
+- [`loadingStyle`](#loadingstyle)
+- [`onPress`](#onpress)
+- [`raised`](#raised)
+- [`title`](#title)
+- [`titleProps`](#titleprops)
+- [`titleStyle`](#titlestyle)
+- [`type`](#type)
+- [`TouchableComponent`](#touchablecomponent)
+- [`ViewComponent`](#viewcomponent)
 
 ---
 
@@ -170,9 +170,9 @@ style of the title when disabled
 displays a centered icon (when no title) or to the left (with text). (can be
 used along with iconRight as well). Can be an object or a custom component.
 
-|                                             Type                                              | Default |
-| :-------------------------------------------------------------------------------------------: | :-----: |
-| {[...Icon props](/react-native-elements/docs/icon.html#icon-props)}<br/>**OR**<br/> component |  none   |
+|                            Type                            | Default |
+| :--------------------------------------------------------: | :-----: |
+| {[...Icon props](icon.md#props)}<br/>**OR**<br/> component |  none   |
 
 ---
 

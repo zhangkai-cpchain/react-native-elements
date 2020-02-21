@@ -121,7 +121,7 @@ const ListItem = props => {
         {renderIcon(leftIcon)}
         {renderAvatar(leftAvatar)}
 
-        {(title || subtitle) && (
+        {(typeof title !== 'undefined' || subtitle) && (
           <View
             style={StyleSheet.flatten([
               styles.contentContainer,
@@ -266,6 +266,7 @@ const styles = {
   },
   inputContainer: {
     flex: 1,
+    paddingRight: 0,
   },
   inputContentContainer: {
     flex: 1,
@@ -278,7 +279,6 @@ const styles = {
     textAlign: 'right',
     width: null,
     height: null,
-    marginLeft: 0,
   },
   checkboxContainer: {
     margin: 0,
@@ -288,10 +288,8 @@ const styles = {
   },
   buttonGroupContainer: {
     flex: 1,
-    marginLeft: 0,
-    marginRight: 0,
-    marginTop: 0,
-    marginBottom: 0,
+    marginHorizontal: 0,
+    marginVertical: 0,
   },
   rightTitle: {
     color: ANDROID_SECONDARY,
@@ -305,7 +303,7 @@ ListItem.propTypes = {
   containerStyle: ViewPropTypes.style,
   contentContainerStyle: ViewPropTypes.style,
   rightContentContainerStyle: ViewPropTypes.style,
-  Component: PropTypes.func,
+  Component: PropTypes.elementType,
   onPress: PropTypes.func,
   onLongPress: PropTypes.func,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
@@ -339,33 +337,46 @@ ListItem.propTypes = {
   bottomDivider: PropTypes.bool,
   pad: PropTypes.number,
   linearGradientProps: PropTypes.object,
-  ViewComponent: PropTypes.func,
+  ViewComponent: PropTypes.elementType,
   theme: PropTypes.object,
 };
 
 ListItem.defaultProps = {
   pad: 16,
+  title: '',
 };
 
-const PadView = ({ children, pad, Component, ...props }) => {
-  const childrens = React.Children.toArray(children);
-  const length = childrens.length;
-  const Container = Component || View;
-  return (
-    <Container {...props}>
-      {React.Children.map(
-        childrens,
-        (child, index) =>
-          child && [child, index !== length - 1 && <View width={pad} />]
-      )}
-    </Container>
-  );
-};
+class PadView extends React.Component {
+  constructor(props) {
+    super(props);
+    this._root = React.createRef();
+  }
+
+  setNativeProps = nativeProps => {
+    this._root.current.setNativeProps(nativeProps);
+  };
+
+  render() {
+    const { children, pad, Component, ...props } = this.props;
+    const childrens = React.Children.toArray(children);
+    const { length } = childrens;
+    const Container = Component || View;
+    return (
+      <Container {...props} ref={this._root}>
+        {React.Children.map(
+          childrens,
+          (child, index) =>
+            child && [child, index !== length - 1 && <View width={pad} />]
+        )}
+      </Container>
+    );
+  }
+}
 
 PadView.propTypes = {
   children: PropTypes.node,
   pad: PropTypes.number,
-  Component: PropTypes.func,
+  Component: PropTypes.elementType,
 };
 
 export { ListItem };

@@ -46,7 +46,7 @@ describe('withTheme', () => {
 
   it('passes instance methods on to wrapped component', () => {
     class Component extends React.Component {
-      hello() {}
+      hello = () => {};
 
       render() {
         return <Text />;

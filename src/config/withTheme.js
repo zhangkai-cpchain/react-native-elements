@@ -1,5 +1,5 @@
 import React from 'react';
-import merge from 'lodash.merge';
+import deepmerge from 'deepmerge';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 
 import { ThemeConsumer } from './ThemeProvider';
@@ -11,15 +11,14 @@ const isClassComponent = Component =>
 const withTheme = (WrappedComponent, themeKey) => {
   class ThemedComponent extends React.Component {
     render() {
-      /* eslint-disable react/prop-types */
-      const { forwardedRef, ...rest } = this.props;
+      const { forwardedRef, children, ...rest } = this.props;
 
       return (
         <ThemeConsumer>
           {context => {
             // If user isn't using ThemeProvider
             if (!context) {
-              let props = { ...rest, theme: DefaultTheme };
+              const props = { ...rest, theme: DefaultTheme, children };
 
               return isClassComponent(WrappedComponent) ? (
                 <WrappedComponent ref={forwardedRef} {...props} />
@@ -28,11 +27,13 @@ const withTheme = (WrappedComponent, themeKey) => {
               );
             }
 
-            const { theme, updateTheme } = context;
+            const { theme, updateTheme, replaceTheme } = context;
             const props = {
               theme,
               updateTheme,
-              ...merge({}, themeKey && theme[themeKey], rest),
+              replaceTheme,
+              ...deepmerge((themeKey && theme[themeKey]) || {}, rest),
+              children,
             };
 
             if (isClassComponent(WrappedComponent)) {
@@ -52,9 +53,9 @@ const withTheme = (WrappedComponent, themeKey) => {
         'Component'}`;
 
   if (isClassComponent(WrappedComponent)) {
-    const forwardRef = (props, ref) => {
-      return <ThemedComponent {...props} forwardedRef={ref} />;
-    };
+    const forwardRef = (props, ref) => (
+      <ThemedComponent {...props} forwardedRef={ref} />
+    );
 
     forwardRef.displayName = name;
     return hoistNonReactStatics(React.forwardRef(forwardRef), WrappedComponent);

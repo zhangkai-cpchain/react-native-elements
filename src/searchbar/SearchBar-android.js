@@ -1,12 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import {
-  Dimensions,
-  StyleSheet,
-  View,
-  ActivityIndicator,
-  Text,
-} from 'react-native';
+import { StyleSheet, View, ActivityIndicator, Text } from 'react-native';
 
 import { ViewPropTypes } from '../config';
 import { nodeType, renderNode } from '../helpers';
@@ -14,7 +8,6 @@ import { nodeType, renderNode } from '../helpers';
 import Input from '../input/Input';
 import Icon from '../icons/Icon';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
 const ANDROID_GRAY = 'rgba(0, 0, 0, 0.54)';
 
 const defaultSearchIcon = {
@@ -60,7 +53,10 @@ class SearchBar extends Component {
 
   onFocus = () => {
     this.props.onFocus();
-    this.setState({ hasFocus: true });
+    this.setState({
+      hasFocus: true,
+      isEmpty: this.props.value === '',
+    });
   };
 
   onBlur = () => {
@@ -102,12 +98,15 @@ class SearchBar extends Component {
     return (
       <View style={StyleSheet.flatten([styles.container, containerStyle])}>
         <Input
-          {...attributes}
           testID="searchInput"
+          {...attributes}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           onChangeText={this.onChangeText}
-          ref={input => (this.input = input)}
+          ref={input => {
+            this.input = input;
+          }}
+          containerStyle={{ paddingHorizontal: 0 }}
           inputStyle={StyleSheet.flatten([styles.input, inputStyle])}
           inputContainerStyle={StyleSheet.flatten([
             styles.inputContainer,
@@ -188,7 +187,6 @@ SearchBar.defaultProps = {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    width: SCREEN_WIDTH,
     paddingTop: 8,
     paddingBottom: 8,
   },
@@ -198,7 +196,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     borderBottomWidth: 0,
-    width: SCREEN_WIDTH,
+    width: '100%',
   },
   rightIconContainerStyle: {
     marginRight: 8,

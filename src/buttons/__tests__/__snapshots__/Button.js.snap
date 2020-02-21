@@ -1,20 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button Component Button Types Clear should display clear button 1`] = `
-<Component
+<View
   style={
     Object {
       "borderRadius": 3,
+      "overflow": "hidden",
     }
   }
 >
   <TouchableOpacity
+    accessibilityRole="button"
+    accessibilityStates={Array []}
     activeOpacity={0.3}
-    background={Object {}}
+    delayPressIn={0}
     disabled={false}
     onPress={[Function]}
   >
-    <Component
+    <View
       style={
         Object {
           "alignItems": "center",
@@ -29,9 +32,6 @@ exports[`Button Component Button Types Clear should display clear button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#2089dc",
@@ -44,26 +44,33 @@ exports[`Button Component Button Types Clear should display clear button 1`] = `
       >
         Clear
       </Text>
-    </Component>
+    </View>
   </TouchableOpacity>
-</Component>
+</View>
 `;
 
 exports[`Button Component Button Types Clear should display clear button disabled 1`] = `
-<Component
+<View
   style={
     Object {
       "borderRadius": 3,
+      "overflow": "hidden",
     }
   }
 >
   <TouchableOpacity
+    accessibilityRole="button"
+    accessibilityStates={
+      Array [
+        "disabled",
+      ]
+    }
     activeOpacity={0.3}
-    background={Object {}}
+    delayPressIn={0}
     disabled={true}
     onPress={[Function]}
   >
-    <Component
+    <View
       style={
         Object {
           "alignItems": "center",
@@ -78,9 +85,6 @@ exports[`Button Component Button Types Clear should display clear button disable
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": Object {
@@ -101,26 +105,29 @@ exports[`Button Component Button Types Clear should display clear button disable
       >
         Clear
       </Text>
-    </Component>
+    </View>
   </TouchableOpacity>
-</Component>
+</View>
 `;
 
 exports[`Button Component Button Types Clear should display raised clear button 1`] = `
-<Component
+<View
   style={
     Object {
       "borderRadius": 3,
+      "overflow": "hidden",
     }
   }
 >
   <TouchableOpacity
+    accessibilityRole="button"
+    accessibilityStates={Array []}
     activeOpacity={0.3}
-    background={Object {}}
+    delayPressIn={0}
     disabled={false}
     onPress={[Function]}
   >
-    <Component
+    <View
       style={
         Object {
           "alignItems": "center",
@@ -135,9 +142,6 @@ exports[`Button Component Button Types Clear should display raised clear button 
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#2089dc",
@@ -150,26 +154,29 @@ exports[`Button Component Button Types Clear should display raised clear button 
       >
         Clear
       </Text>
-    </Component>
+    </View>
   </TouchableOpacity>
-</Component>
+</View>
 `;
 
 exports[`Button Component Button Types Outline should display outline button 1`] = `
-<Component
+<View
   style={
     Object {
       "borderRadius": 3,
+      "overflow": "hidden",
     }
   }
 >
   <TouchableOpacity
+    accessibilityRole="button"
+    accessibilityStates={Array []}
     activeOpacity={0.3}
-    background={Object {}}
+    delayPressIn={0}
     disabled={false}
     onPress={[Function]}
   >
-    <Component
+    <View
       style={
         Object {
           "alignItems": "center",
@@ -184,9 +191,6 @@ exports[`Button Component Button Types Outline should display outline button 1`]
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#2089dc",
@@ -199,26 +203,33 @@ exports[`Button Component Button Types Outline should display outline button 1`]
       >
         Outline
       </Text>
-    </Component>
+    </View>
   </TouchableOpacity>
-</Component>
+</View>
 `;
 
 exports[`Button Component Button Types Outline should display outline button disabled 1`] = `
-<Component
+<View
   style={
     Object {
       "borderRadius": 3,
+      "overflow": "hidden",
     }
   }
 >
   <TouchableOpacity
+    accessibilityRole="button"
+    accessibilityStates={
+      Array [
+        "disabled",
+      ]
+    }
     activeOpacity={0.3}
-    background={Object {}}
+    delayPressIn={0}
     disabled={true}
     onPress={[Function]}
   >
-    <Component
+    <View
       style={
         Object {
           "alignItems": "center",
@@ -241,9 +252,6 @@ exports[`Button Component Button Types Outline should display outline button dis
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": Object {
@@ -264,27 +272,30 @@ exports[`Button Component Button Types Outline should display outline button dis
       >
         Outline
       </Text>
-    </Component>
+    </View>
   </TouchableOpacity>
-</Component>
+</View>
 `;
 
 exports[`Button Component Button Types Outline should display raised outline button 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#fff",
       "borderRadius": 3,
+      "overflow": "hidden",
     }
   }
 >
   <TouchableOpacity
+    accessibilityRole="button"
+    accessibilityStates={Array []}
     activeOpacity={0.3}
-    background={Object {}}
+    delayPressIn={0}
     disabled={false}
     onPress={[Function]}
   >
-    <Component
+    <View
       style={
         Object {
           "alignItems": "center",
@@ -299,9 +310,6 @@ exports[`Button Component Button Types Outline should display raised outline but
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#2089dc",
@@ -314,27 +322,30 @@ exports[`Button Component Button Types Outline should display raised outline but
       >
         Outline
       </Text>
-    </Component>
+    </View>
   </TouchableOpacity>
-</Component>
+</View>
 `;
 
 exports[`Button Component Button Types Solid should display raised solid button 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#fff",
       "borderRadius": 3,
+      "overflow": "hidden",
     }
   }
 >
   <TouchableOpacity
+    accessibilityRole="button"
+    accessibilityStates={Array []}
     activeOpacity={0.3}
-    background={Object {}}
+    delayPressIn={0}
     disabled={false}
     onPress={[Function]}
   >
-    <Component
+    <View
       style={
         Object {
           "alignItems": "center",
@@ -349,9 +360,6 @@ exports[`Button Component Button Types Solid should display raised solid button 
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "white",
@@ -364,26 +372,29 @@ exports[`Button Component Button Types Solid should display raised solid button 
       >
         Solid
       </Text>
-    </Component>
+    </View>
   </TouchableOpacity>
-</Component>
+</View>
 `;
 
 exports[`Button Component Button Types Solid should display solid button 1`] = `
-<Component
+<View
   style={
     Object {
       "borderRadius": 3,
+      "overflow": "hidden",
     }
   }
 >
   <TouchableOpacity
+    accessibilityRole="button"
+    accessibilityStates={Array []}
     activeOpacity={0.3}
-    background={Object {}}
+    delayPressIn={0}
     disabled={false}
     onPress={[Function]}
   >
-    <Component
+    <View
       style={
         Object {
           "alignItems": "center",
@@ -398,9 +409,6 @@ exports[`Button Component Button Types Solid should display solid button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "white",
@@ -413,26 +421,33 @@ exports[`Button Component Button Types Solid should display solid button 1`] = `
       >
         Solid
       </Text>
-    </Component>
+    </View>
   </TouchableOpacity>
-</Component>
+</View>
 `;
 
 exports[`Button Component Button Types Solid should display solid button disabled 1`] = `
-<Component
+<View
   style={
     Object {
       "borderRadius": 3,
+      "overflow": "hidden",
     }
   }
 >
   <TouchableOpacity
+    accessibilityRole="button"
+    accessibilityStates={
+      Array [
+        "disabled",
+      ]
+    }
     activeOpacity={0.3}
-    background={Object {}}
+    delayPressIn={0}
     disabled={true}
     onPress={[Function]}
   >
-    <Component
+    <View
       style={
         Object {
           "alignItems": "center",
@@ -447,9 +462,6 @@ exports[`Button Component Button Types Solid should display solid button disable
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": Object {
@@ -470,9 +482,9 @@ exports[`Button Component Button Types Solid should display solid button disable
       >
         Solid
       </Text>
-    </Component>
+    </View>
   </TouchableOpacity>
-</Component>
+</View>
 `;
 
 exports[`Button Component should apply values from theme 1`] = `
@@ -480,10 +492,17 @@ exports[`Button Component should apply values from theme 1`] = `
   style={
     Object {
       "borderRadius": 3,
+      "overflow": "hidden",
     }
   }
 >
   <View
+    accessibilityRole="button"
+    accessibilityStates={
+      Array [
+        "busy",
+      ]
+    }
     accessible={true}
     isTVSelectable={true}
     onResponderGrant={[Function]}
@@ -494,7 +513,14 @@ exports[`Button Component should apply values from theme 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "opacity": 1,
+        "opacity": Object {
+          "_animation": null,
+          "_children": Array [],
+          "_listeners": Object {},
+          "_offset": 0,
+          "_startingValue": 1,
+          "_value": 1,
+        },
       }
     }
   >
@@ -529,19 +555,23 @@ exports[`Button Component should apply values from theme 1`] = `
 `;
 
 exports[`Button Component should render without issues 1`] = `
-<Component
+<View
   style={
     Object {
       "borderRadius": 3,
+      "overflow": "hidden",
     }
   }
 >
   <TouchableOpacity
+    accessibilityRole="button"
+    accessibilityStates={Array []}
     activeOpacity={0.3}
+    delayPressIn={0}
     disabled={false}
     onPress={[Function]}
   >
-    <Component
+    <View
       style={
         Object {
           "alignItems": "center",
@@ -556,5 +586,5 @@ exports[`Button Component should render without issues 1`] = `
       }
     />
   </TouchableOpacity>
-</Component>
+</View>
 `;

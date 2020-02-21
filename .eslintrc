@@ -1,14 +1,6 @@
 {
-  "parser": "babel-eslint",
-  "env": {
-    "browser": true,
-    "node": true,
-    "jest": true
-  },
-  "plugins": ["react", "react-native"],
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": "@react-native-community",
   "rules": {
-    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
-    "semi": ["error", "always"]
+    "react-native/no-inline-styles": 0
   }
 }

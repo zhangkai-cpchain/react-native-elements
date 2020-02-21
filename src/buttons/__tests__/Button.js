@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
 import { shallow } from 'enzyme';
@@ -30,7 +29,7 @@ describe('Button Component', () => {
       .onPress();
 
     expect(console.log.mock.calls[0][0]).toBe(
-      `Please attach a method to this component`
+      'Please attach a method to this component'
     );
 
     wrapper.setProps({ onPress });
@@ -41,14 +40,24 @@ describe('Button Component', () => {
       .props()
       .onPress();
 
-    expect(onPress).toBeCalled();
+    expect(onPress).toHaveBeenCalled();
+  });
+
+  it('should not be call onPress events when loading is true', () => {
+    const onPress = jest.fn();
+    const wrapper = shallow(<Button theme={theme} loading onPress={onPress} />);
+
+    // Simulate press action
+    wrapper.simulate('press');
+
+    expect(onPress).not.toHaveBeenCalled();
   });
 
   it('should have ripple on android version 21 and higher', () => {
     jest.mock('Platform', () => ({
       OS: 'android',
       Version: 25,
-      select: function() {},
+      select() {},
     }));
 
     const wrapper = shallow(<Button theme={theme} />);
@@ -60,7 +69,7 @@ describe('Button Component', () => {
     jest.mock('Platform', () => ({
       OS: 'android',
       Version: 20,
-      select: function() {},
+      select() {},
     }));
 
     const wrapper = shallow(<Button theme={theme} />);
@@ -78,7 +87,7 @@ describe('Button Component', () => {
     );
 
     expect(console.error.mock.calls[0][0]).toBe(
-      `You need to pass a ViewComponent to use linearGradientProps !\nExample: ViewComponent={require('react-native-linear-gradient')}`
+      "You need to pass a ViewComponent to use linearGradientProps !\nExample: ViewComponent={require('react-native-linear-gradient')}"
     );
   });
 
@@ -161,14 +170,14 @@ describe('Button Component', () => {
   });
 
   it('should apply values from theme', () => {
-    const theme = {
+    const testTheme = {
       Button: {
         loading: true,
       },
     };
 
     const component = create(
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={testTheme}>
         <ThemedButton />
       </ThemeProvider>
     );

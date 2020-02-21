@@ -20,45 +20,62 @@ describe('Overlay', () => {
     expect(toJson(component)).toMatchSnapshot();
   });
 
-  it('should render nothing if not visible', () => {
+  it('should be able to render fullscreen', () => {
     const component = shallow(
-      <Overlay isVisible={false}>
+      <Overlay isVisible fullScreen>
         <Text>I'm in an Overlay</Text>
       </Overlay>
     );
-
-    expect(component.getElement()).toBeFalsy();
     expect(toJson(component)).toMatchSnapshot();
   });
 
-  it('should be able to render fullscreen', () => {
-    const component = shallow(
-      <Overlay isVisible={true} fullScreen>
+  it('should click the backdrop and use default onPress handler', () => {
+    const wrapper = shallow(
+      <Overlay isVisible>
         <Text>I'm in an Overlay</Text>
       </Overlay>
     );
-    expect(toJson(component)).toMatchSnapshot();
+
+    wrapper
+      .dive()
+      .find({ testID: 'RNE__Overlay__backdrop' })
+      .simulate('press');
+  });
+
+  it('should click the backdrop and use passed handler', () => {
+    const onBackdropPress = jest.fn();
+
+    const wrapper = shallow(
+      <Overlay isVisible onBackdropPress={onBackdropPress}>
+        <Text>I'm in an Overlay</Text>
+      </Overlay>
+    );
+
+    wrapper
+      .dive()
+      .find({ testID: 'RNE__Overlay__backdrop' })
+      .simulate('press');
+
+    expect(onBackdropPress).toHaveBeenCalled();
   });
 
   it('should apply values from theme', () => {
     const theme = {
       Overlay: {
-        windowBackgroundColor: 'green',
+        backdropStyle: {
+          backgroundColor: 'green',
+        },
       },
     };
 
     const component = create(
       <ThemeProvider theme={theme}>
-        <ThemedOverlay isVisible={true}>
+        <ThemedOverlay isVisible>
           <Text>I'm in an Overlay</Text>
         </ThemedOverlay>
       </ThemeProvider>
     );
 
-    expect(
-      component.root.children[0].children[0].children[0].children[0].props.style
-        .backgroundColor
-    ).toBe('green');
     expect(component.toJSON()).toMatchSnapshot();
   });
 });

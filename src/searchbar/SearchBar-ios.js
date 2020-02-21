@@ -33,11 +33,11 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     const { value } = props;
+
     this.state = {
       hasFocus: false,
       isEmpty: value ? value === '' : true,
-      cancelButtonWidth: 0,
-      cancelButtonTransform: 0,
+      cancelButtonWidth: null,
     };
   }
 
@@ -56,26 +56,38 @@ class SearchBar extends Component {
   };
 
   cancel = () => {
-    this.blur();
-    this.props.onCancel();
+    this.onChangeText('');
+
+    if (this.props.showCancel) {
+      UIManager.configureNextLayoutAnimation && LayoutAnimation.easeInEaseOut();
+      this.setState({ hasFocus: false });
+    }
+
+    setTimeout(() => {
+      this.blur();
+      this.props.onCancel();
+    }, 0);
   };
 
   onFocus = () => {
     this.props.onFocus();
     UIManager.configureNextLayoutAnimation && LayoutAnimation.easeInEaseOut();
+
     this.setState({
       hasFocus: true,
-      cancelButtonTransform: -this.state.cancelButtonWidth,
+      isEmpty: this.props.value === '',
     });
   };
 
   onBlur = () => {
     this.props.onBlur();
     UIManager.configureNextLayoutAnimation && LayoutAnimation.easeInEaseOut();
-    this.setState({
-      hasFocus: false,
-      cancelButtonTransform: 0,
-    });
+
+    if (!this.props.showCancel) {
+      this.setState({
+        hasFocus: false,
+      });
+    }
   };
 
   onChangeText = text => {
@@ -97,6 +109,7 @@ class SearchBar extends Component {
       showLoading,
       loadingProps,
       searchIcon,
+      showCancel,
       ...attributes
     } = this.props;
     const { hasFocus, isEmpty } = this.state;
@@ -116,15 +129,17 @@ class SearchBar extends Component {
     return (
       <View style={StyleSheet.flatten([styles.container, containerStyle])}>
         <Input
-          {...attributes}
           testID="searchInput"
+          {...attributes}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           onChangeText={this.onChangeText}
-          ref={input => (this.input = input)}
+          ref={input => {
+            this.input = input;
+          }}
           inputStyle={StyleSheet.flatten([styles.input, inputStyle])}
           containerStyle={{
-            width: '100%',
+            paddingHorizontal: 0,
           }}
           inputContainerStyle={StyleSheet.flatten([
             styles.inputContainer,
@@ -161,7 +176,13 @@ class SearchBar extends Component {
         />
 
         <View
-          style={{ marginLeft: this.state.cancelButtonTransform }}
+          style={StyleSheet.flatten([
+            styles.cancelButtonContainer,
+            {
+              opacity: this.state.cancelButtonWidth === null ? 0 : 1,
+              right: hasFocus ? 0 : -this.state.cancelButtonWidth,
+            },
+          ])}
           onLayout={event =>
             this.setState({ cancelButtonWidth: event.nativeEvent.layout.width })
           }
@@ -179,9 +200,7 @@ class SearchBar extends Component {
                   buttonColor && { color: buttonColor },
                   buttonTextStyle,
                   buttonDisabled &&
-                    (buttonDisabledTextStyle
-                      ? buttonDisabledTextStyle
-                      : styles.buttonTextDisabled),
+                    (buttonDisabledTextStyle || styles.buttonTextDisabled),
                 ]}
                 disabled={buttonDisabled}
               >
@@ -214,6 +233,7 @@ SearchBar.propTypes = {
   inputContainerStyle: ViewPropTypes.style,
   inputStyle: Text.propTypes.style,
   placeholderTextColor: PropTypes.string,
+  showCancel: PropTypes.bool,
 };
 
 SearchBar.defaultProps = {
@@ -230,27 +250,29 @@ SearchBar.defaultProps = {
   placeholderTextColor: IOS_GRAY,
   searchIcon: defaultSearchIcon,
   clearIcon: defaultClearIcon,
+  showCancel: false,
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
     backgroundColor: '#f5f5f5',
     paddingBottom: 13,
     paddingTop: 13,
     flexDirection: 'row',
     overflow: 'hidden',
+    alignItems: 'center',
   },
   input: {
     marginLeft: 6,
+    overflow: 'hidden',
   },
   inputContainer: {
     borderBottomWidth: 0,
     backgroundColor: '#dcdce1',
     borderRadius: 9,
-    height: 36,
-    marginLeft: 15,
-    marginRight: 15,
+    minHeight: 36,
+    marginLeft: 8,
+    marginRight: 8,
   },
   rightIconContainerStyle: {
     marginRight: 8,
@@ -266,6 +288,9 @@ const styles = StyleSheet.create({
   },
   buttonTextDisabled: {
     color: '#cdcdcd',
+  },
+  cancelButtonContainer: {
+    position: 'absolute',
   },
 });
 

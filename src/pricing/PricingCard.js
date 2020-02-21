@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Platform, StyleSheet } from 'react-native';
+import { View, Platform, StyleSheet, Text as RNText } from 'react-native';
 
 import { normalizeText } from '../helpers';
 import { fonts, ViewPropTypes, withTheme } from '../config';
@@ -56,16 +56,14 @@ const PricingCard = props => {
           {price}
         </Text>
 
-        {info.map((item, i) => {
-          return (
-            <Text
-              key={i}
-              style={StyleSheet.flatten([styles.pricingInfo(theme), infoStyle])}
-            >
-              {item}
-            </Text>
-          );
-        })}
+        {info.map(item => (
+          <Text
+            key={item}
+            style={StyleSheet.flatten([styles.pricingInfo(theme), infoStyle])}
+          >
+            {item}
+          </Text>
+        ))}
 
         <Button
           title={button.title}
@@ -74,6 +72,7 @@ const PricingCard = props => {
             button.buttonStyle,
             { backgroundColor: color },
           ])}
+          titleStyle={button.titleStyle}
           onPress={onButtonPress}
           icon={<Icon name={button.icon} size={15} color="white" />}
         />
@@ -87,13 +86,13 @@ PricingCard.propTypes = {
   wrapperStyle: ViewPropTypes.style,
   title: PropTypes.string,
   price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  info: PropTypes.array,
+  info: PropTypes.arrayOf(PropTypes.string),
   button: PropTypes.object,
   color: PropTypes.string,
-  onButtonPress: PropTypes.any,
-  titleStyle: PropTypes.object,
-  pricingStyle: PropTypes.object,
-  infoStyle: PropTypes.object,
+  onButtonPress: PropTypes.func,
+  titleStyle: RNText.propTypes.style,
+  pricingStyle: RNText.propTypes.style,
+  infoStyle: RNText.propTypes.style,
   theme: PropTypes.object,
 };
 

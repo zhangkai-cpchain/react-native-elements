@@ -6,7 +6,7 @@ title: Customization
 Congrats! You've installed React Native Elements and your immediate question
 goes something like this:
 
-> So umm, how I do change how it looks?
+> So umm, how do I change how it looks?
 
 Great question! A UI Kit wouldn't be that useful if the apps everyone built
 looked the same right? For this case React Native Elements provide a number of
@@ -81,7 +81,7 @@ const App = () => {
 };
 ```
 
-The example above acheives the same goals as the first example — apply the same
+The example above achieves the same goals as the first example — apply the same
 styles to multiple instances of `Button` in the app. However this example
 applies the `raised` prop to every instance of `Button` inside the component
 tree under `ThemeProvider`. Both of these buttons will have the `raised` prop
@@ -123,7 +123,7 @@ const theme = {
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Card title="My Button" />
+      <Button title="My Button" />
     </ThemeProvider>
   );
 };
@@ -150,7 +150,7 @@ const theme = {
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Card title="My Button" titleStyle={{ color: 'pink' }} />
+      <Button title="My Button" titleStyle={{ color: 'pink' }} />
     </ThemeProvider>
   );
 };
@@ -167,7 +167,9 @@ style as well as the red color set in the theme.
 ### The Theme Object
 
 By default, the theme object looks like this. You can add whatever values you
-want to the theme, and they will be merged with the default.
+want to the theme, and they will be merged with the default. By default the
+platform colors aren't used anywhere. These native colors are added for
+your convenience.
 
 ```tsx
 interface theme {
@@ -182,8 +184,22 @@ interface theme {
     grey5;
     greyOutline;
     searchBg;
+    success;
     error;
+    warning;
     divider;
+    platform: {
+      ios: {
+        primary;
+        secondary;
+        success;
+        error;
+        warning;
+      };
+      android: {
+        // Same as ios
+      };
+    };
   };
 }
 ```
@@ -213,8 +229,8 @@ const theme = {
 ### Using the theme in your own components
 
 You may want to make use of the theming utilities in your own components. For
-this you can use the `withTheme` HOC exported from this library. It adds two
-props to the component it wraps - `theme` and `updateTheme`.
+this you can use the `withTheme` HOC exported from this library. It adds three
+props to the component it wraps - `theme`, `updateTheme` and `replaceTheme`.
 
 ```jsx
 import React from 'react';
@@ -222,14 +238,14 @@ import { Text } from 'react-native';
 import { withTheme } from 'react-native-elements';
 
 function MyComponent(props) {
-  const { theme, updateTheme } = props;
+  const { theme, updateTheme, replaceTheme } = props;
   return <Text style={{ color: theme.colors.primary }}>Yo!</Text>;
 }
 
 export default withTheme(MyComponent);
 ```
 
-The `updateTheme` merges the theme passed in with the current theme.
+The `updateTheme` function merges the theme passed in with the current theme.
 
 ```jsx
 const theme = {
@@ -241,6 +257,8 @@ const theme = {
 // We can update the primary color
 updateTheme({ colors: { primary: 'red' } });
 ```
+
+The `replaceTheme` function merges the theme passed in with the default theme.
 
 Don't want to wrap your components? You can use the `ThemeConsumer` component
 which uses render props!
@@ -258,3 +276,124 @@ const MyComponent = () => (
   </ThemeConsumer>
 )
 ```
+
+You can also use the ThemeContext directly if you use hooks.
+
+```jsx
+import React, { useContext } from 'react';
+import { Text } from 'react-native';
+import { ThemeContext } from 'react-native-elements';
+
+const MyComponent = () => {
+  const { theme } = useContext(ThemeContext);
+
+  return (
+    <View style={styles.container}>
+      <Text style={{ color: theme.colors.primary }}>Yo!</Text>
+    </View>
+  );
+};
+```
+
+---
+
+### Using the respective platform's native colors
+
+You may want to style your app using the native color palette. You can do this
+using the `colors` object and the `Platform` API.
+
+```jsx
+import { Platform } from 'react-native';
+import { Button, colors, ThemeProvider } from 'react-native-elements';
+
+const theme = {
+  colors: {
+    ...Platform.select({
+      default: colors.platform.android,
+      ios: colors.platform.ios,
+    }),
+  },
+};
+
+const App = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      // This button's color will now be the default iOS / Android blue.
+      <Button title="My Button" />
+    </ThemeProvider>
+  );
+};
+```
+
+---
+
+### Common Pitfalls
+
+This section outlines some common pitfalls when using Theming.
+
+#### My local styles aren't working with the theme
+
+It's important to understand that the `ThemeProvider` works by merging your local(external) styles with those set on the theme.
+This means that in both cases **the type of these styles must be the same**.
+
+##### Example 1
+
+```jsx
+const theme = {
+  Button: {
+    containerStyle: {
+      marginTop: 10;
+    }
+  }
+}
+
+<Button
+  containerStyle={{ backgroundColor: 'blue' }}
+/>
+```
+
+> ✅ Works
+>
+> In both cases the style is an `object`
+
+<br />
+
+##### Example 2
+
+```jsx
+const theme = {
+  Button: {
+    containerStyle: [
+      {
+        marginTop: 10;
+      }
+    ]
+  }
+}
+
+<Button containerStyle={[{ backgroundColor: 'blue' }]} />
+```
+
+> ✅ Works
+>
+> In both cases the style is an `array`
+
+<br />
+
+##### Example 3
+
+```jsx
+const theme = {
+  Button: {
+    containerStyle: {
+      marginTop: 10;
+    }
+  }
+}
+
+<Button containerStyle={[{ backgroundColor: 'blue' }]} />
+```
+
+> 🚫 Doesn't work
+>
+> In one case the style is an `object` and another the style is an `array`

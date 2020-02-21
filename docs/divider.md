@@ -11,14 +11,17 @@ distinction between sections of content.
 ```js
 import { Divider } from 'react-native-elements';
 
-<Divider style={{ backgroundColor: 'blue' }} />;
+<Divider style={{ backgroundColor: 'blue' }} />
 ```
 
 ---
 
 ## Props
 
-* [`style`](#style)
+> Also receives all
+> [View](https://facebook.github.io/react-native/docs/view#props) props
+
+- [`style`](#style)
 
 ---
 

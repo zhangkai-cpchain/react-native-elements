@@ -10,7 +10,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import { nodeType, renderNode } from '../helpers';
+import { nodeType, renderNode, patchWebProps } from '../helpers';
 import { fonts, withTheme, ViewPropTypes, TextPropTypes } from '../config';
 
 import Icon from '../icons/Icon';
@@ -40,6 +40,10 @@ class Input extends React.Component {
     return this.input.isFocused();
   }
 
+  setNativeProps(nativeProps) {
+    this.input.setNativeProps(nativeProps);
+  }
+
   shake = () => {
     const { shakeAnimationValue } = this;
 
@@ -56,12 +60,14 @@ class Input extends React.Component {
   render() {
     const {
       containerStyle,
+      disabled,
+      disabledInputStyle,
       inputContainerStyle,
       leftIcon,
       leftIconContainerStyle,
       rightIcon,
       rightIconContainerStyle,
-      inputComponent: InputComponent = TextInput,
+      InputComponent,
       inputStyle,
       errorProps,
       errorStyle,
@@ -79,7 +85,7 @@ class Input extends React.Component {
     });
 
     return (
-      <View style={StyleSheet.flatten([{ width: '90%' }, containerStyle])}>
+      <View style={StyleSheet.flatten([styles.container, containerStyle])}>
         {renderText(
           label,
           { style: labelStyle, ...labelProps },
@@ -105,10 +111,19 @@ class Input extends React.Component {
           )}
 
           <InputComponent
+            testID="RNE__Input__text-input"
             underlineColorAndroid="transparent"
-            {...attributes}
-            ref={ref => (this.input = ref)}
-            style={StyleSheet.flatten([styles.input, inputStyle])}
+            editable={!disabled}
+            {...patchWebProps(attributes)}
+            ref={ref => {
+              this.input = ref;
+            }}
+            style={StyleSheet.flatten([
+              styles.input,
+              inputStyle,
+              disabled && styles.disabledInput,
+              disabled && disabledInputStyle,
+            ])}
           />
 
           {rightIcon && (
@@ -141,14 +156,15 @@ class Input extends React.Component {
 
 Input.propTypes = {
   containerStyle: ViewPropTypes.style,
+  disabled: PropTypes.bool,
+  disabledInputStyle: TextPropTypes.style,
   inputContainerStyle: ViewPropTypes.style,
   leftIcon: nodeType,
   leftIconContainerStyle: ViewPropTypes.style,
   rightIcon: nodeType,
   rightIconContainerStyle: ViewPropTypes.style,
   inputStyle: TextPropTypes.style,
-  inputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  shake: PropTypes.any,
+  InputComponent: PropTypes.elementType,
   errorProps: PropTypes.object,
   errorStyle: TextPropTypes.style,
   errorMessage: PropTypes.string,
@@ -158,7 +174,18 @@ Input.propTypes = {
   theme: PropTypes.object,
 };
 
+Input.defaultProps = {
+  InputComponent: TextInput,
+};
+
 const styles = {
+  container: {
+    width: '100%',
+    paddingHorizontal: 10,
+  },
+  disabledInput: {
+    opacity: 0.5,
+  },
   inputContainer: theme => ({
     flexDirection: 'row',
     borderBottomWidth: 1,
@@ -175,9 +202,8 @@ const styles = {
     alignSelf: 'center',
     color: 'black',
     fontSize: 18,
-    marginLeft: 10,
     flex: 1,
-    height: 40,
+    minHeight: 40,
   },
   error: theme => ({
     margin: 5,

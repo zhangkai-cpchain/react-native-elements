@@ -10,84 +10,80 @@ way to inform or request information from the user.
 
 ## Usage
 
-```js
-<Overlay isVisible={this.state.isVisible}>
-  <Text>Hello from Overlay!</Text>
-</Overlay>;
+```jsx
+import React, { useState } from 'react';
+import { Button, Overlay } from 'react-native-elements';
 
-{
-  this.state.visible && (
-    <Overlay isVisible>
-      <Text>Hello from Overlay!</Text>
-    </Overlay>
+const OverlayExample = () => {
+  const [visible, setVisible] = useState(false);
+
+  const toggleOverlay = () => {
+    setVisible(!visible);
+  };
+
+  return (
+    <View>
+      <Button title="Open Overlay" onPress={toggleOverlay} />
+
+      <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
+        <Text>Hello from Overlay!</Text>
+      </Overlay>
+    </View>
   );
-}
+};
+```
 
-<Overlay
-  isVisible={this.state.isVisible}
-  windowBackgroundColor="rgba(255, 255, 255, .5)"
-  overlayBackgroundColor="red"
-  width="auto"
-  height="auto"
+> Web-platform specific note:
 >
-  <Text>Hello from Overlay!</Text>
-</Overlay>;
+> You **must** pass a valid React Native [`Modal`](https://facebook.github.io/react-native/docs/modal) component implementation
+> into [`ModalComponent`](#modalcomponent) prop because `Modal` component is not implemented yet in `react-native-web`
 
-<Overlay
-  isVisible={this.state.isVisible}
-  onBackdropPress={() => this.setState({ isVisible: false })}
->
-  <Text>Hello from Overlay!</Text>
-</Overlay>;
+```jsx
+...
+import Modal from 'modal-react-native-web';
+
+...
+
+<Overlay ModalComponent={Modal} ... />
+...
 ```
 
 ---
 
 ## Props
 
-* [`borderRadius`](#borderradius)
-* [`children`](#children)
-* [`containerStyle`](#containerstyle)
-* [`fullScreen`](#fullscreen)
-* [`height`](#height)
-* [`isVisible`](#isvisible)
-* [`overlayBackgroundColor`](#overlaybackgroundcolor)
-* [`onBackdropPress`](#onbackdroppress)
-* [`overlayStyle`](#overlaystyle)
-* [`width`](#width)
-* [`windowBackgroundColor`](#windowbackgroundcolor)
+> Also receives all
+> [Modal](https://facebook.github.io/react-native/docs/modal#props) props
+
+- [`backdropStyle`](#backdropStyle)
+- [`children`](#children)
+- [`fullScreen`](#fullscreen)
+- [`isVisible`](#isvisible)
+- [`onBackdropPress`](#onbackdroppress)
+- [`overlayStyle`](#overlaystyle)
+- [`ModalComponent`](#modalcomponent)
 
 ---
 
 ## Reference
 
-### `borderRadius`
-
-Border radius for the overlay
-
-|  Type  | Default |
-| :----: | :-----: |
-| number |    3    |
-
----
-
 ### `children`
 
 What the modal will render
 
-| Type | Default |
-| :--: | :-----: |
-| any  |  none   |
+|     Type      | Default |
+| :-----------: | :-----: |
+| React Element |  none   |
 
 ---
 
-### `containerStyle`
+### `backdropStyle`
 
-Style of the overlay container
+Style of the backdrop container
 
-|      Type      |    Default     |
-| :------------: | :------------: |
-| object (style) | various styles |
+|        Type         |    Default     |
+| :-----------------: | :------------: |
+| View Style (object) | Internal Style |
 
 ---
 
@@ -97,17 +93,7 @@ If set to true, the modal will take up the entire screen width and height
 
 |  Type   | Default |
 | :-----: | :-----: |
-| boolean |  none   |
-
----
-
-### `height`
-
-Height of the overlay
-
-|       Type       |       Default       |
-| :--------------: | :-----------------: |
-| string or number | window height - 180 |
+| boolean |  false  |
 
 ---
 
@@ -117,17 +103,7 @@ If true, the overlay is visible
 
 |  Type   | Default |
 | :-----: | :-----: |
-| boolean |  none   |
-
----
-
-### `overlayBackgroundColor`
-
-Background color of the actual overlay
-
-|  Type  | Default |
-| :----: | :-----: |
-| string |  white  |
+| boolean |  false  |
 
 ---
 
@@ -135,15 +111,15 @@ Background color of the actual overlay
 
 style of the actual overlay
 
-|      Type      |    Default     |
-| :------------: | :------------: |
-| object (style) | various styles |
+|        Type         |    Default     |
+| :-----------------: | :------------: |
+| View Style (object) | Internal Style |
 
 ---
 
 ### `onBackdropPress`
 
-callback for overlay background press
+handler for backdrop press (only works when `fullscreen` is false)
 
 |   Type   | Default |
 | :------: | :-----: |
@@ -151,20 +127,10 @@ callback for overlay background press
 
 ---
 
-### `width`
+### `ModalComponent`
 
-Width of the overlay
+override React Native `Modal` component (usable for web-platform)
 
-|       Type       |      Default      |
-| :--------------: | :---------------: |
-| string or number | window width - 80 |
-
----
-
-### `windowBackgroundColor`
-
-Background color for the overlay background
-
-|  Type  |      Default      |
-| :----: | :---------------: |
-| string | rgba(0, 0, 0, .5) |
+|          Type          | Default |
+| :--------------------: | :-----: |
+| React Native Component |  Modal  |

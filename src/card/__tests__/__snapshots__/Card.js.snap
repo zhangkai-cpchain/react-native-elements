@@ -2,6 +2,7 @@
 
 exports[`Card Component should apply values from theme 1`] = `
 <View
+  replaceTheme={[Function]}
   style={
     Object {
       "backgroundColor": "white",
@@ -30,9 +31,6 @@ exports[`Card Component should apply values from theme 1`] = `
   >
     <View>
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#43484d",
@@ -59,6 +57,22 @@ exports[`Card Component should apply values from theme 1`] = `
               "grey4": "#bdc6cf",
               "grey5": "#e1e8ee",
               "greyOutline": "#bbb",
+              "platform": Object {
+                "android": Object {
+                  "error": "#f44336",
+                  "primary": "#2196f3",
+                  "secondary": "#9C27B0",
+                  "success": "#4caf50",
+                  "warning": "#ffeb3b",
+                },
+                "ios": Object {
+                  "error": "#ff3b30",
+                  "primary": "#007aff",
+                  "secondary": "#5856d6",
+                  "success": "#4cd964",
+                  "warning": "#ffcc00",
+                },
+              },
               "primary": "#2089dc",
               "searchBg": "#303337",
               "secondary": "#8F0CE8",
@@ -67,11 +81,11 @@ exports[`Card Component should apply values from theme 1`] = `
             },
           }
         }
-        updateTheme={[Function]}
       >
         Yea b
       </Text>
       <View
+        replaceTheme={[Function]}
         style={
           Object {
             "backgroundColor": "#bcbbc1",
@@ -79,6 +93,7 @@ exports[`Card Component should apply values from theme 1`] = `
             "marginBottom": 15,
           }
         }
+        updateTheme={[Function]}
       />
     </View>
   </View>
@@ -86,7 +101,7 @@ exports[`Card Component should apply values from theme 1`] = `
 `;
 
 exports[`Card Component should have Card title with image 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "red",
@@ -105,20 +120,19 @@ exports[`Card Component should have Card title with image 1`] = `
     }
   }
 >
-  <Component
+  <View
     style={
       Object {
         "backgroundColor": "transparent",
       }
     }
   >
-    <Component>
+    <View>
       <Themed.Text
         style={
           Object {
             "backgroundColor": "red",
             "color": "#43484d",
-            "fontFamily": "arial",
             "fontSize": 17.5,
             "fontWeight": "bold",
             "marginBottom": 15,
@@ -130,9 +144,9 @@ exports[`Card Component should have Card title with image 1`] = `
       >
         HELLO WORLD
       </Themed.Text>
-    </Component>
-    <Component>
-      <ImageBackground
+    </View>
+    <View>
+      <ForwardRef(Themed.Image)
         source={
           Object {
             "uri": "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
@@ -148,20 +162,20 @@ exports[`Card Component should have Card title with image 1`] = `
           ]
         }
       />
-      <Component
+      <View
         style={
           Object {
             "padding": 10,
           }
         }
       />
-    </Component>
-  </Component>
-</Component>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`Card Component should have Card title without image 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "red",
@@ -180,20 +194,18 @@ exports[`Card Component should have Card title without image 1`] = `
     }
   }
 >
-  <Component
+  <View
     style={
       Object {
         "backgroundColor": "transparent",
-        "flexDirection": "row",
       }
     }
   >
-    <Component>
+    <View>
       <Themed.Text
         style={
           Object {
             "color": "#43484d",
-            "fontFamily": "arial",
             "fontSize": 17.5,
             "fontWeight": "bold",
             "marginBottom": 15,
@@ -212,13 +224,13 @@ exports[`Card Component should have Card title without image 1`] = `
           }
         }
       />
-    </Component>
-  </Component>
-</Component>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`Card Component should have Card with featured title 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "white",
@@ -237,14 +249,14 @@ exports[`Card Component should have Card with featured title 1`] = `
     }
   }
 >
-  <Component
+  <View
     style={
       Object {
         "backgroundColor": "red",
       }
     }
   >
-    <Component>
+    <View>
       <Themed.Text
         style={
           Object {
@@ -260,15 +272,15 @@ exports[`Card Component should have Card with featured title 1`] = `
       >
         foo title
       </Themed.Text>
-    </Component>
-    <Component
+    </View>
+    <View
       style={
         Object {
           "backgroundColor": "red",
         }
       }
     >
-      <ImageBackground
+      <ForwardRef(Themed.Image)
         source={
           Object {
             "uri": "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
@@ -286,7 +298,7 @@ exports[`Card Component should have Card with featured title 1`] = `
           ]
         }
       >
-        <Component
+        <View
           style={
             Object {
               "alignItems": "center",
@@ -328,9 +340,9 @@ exports[`Card Component should have Card with featured title 1`] = `
           >
             featured sub title
           </Themed.Text>
-        </Component>
-      </ImageBackground>
-      <Component
+        </View>
+      </ForwardRef(Themed.Image)>
+      <View
         style={
           Object {
             "backgroundColor": "red",
@@ -338,13 +350,13 @@ exports[`Card Component should have Card with featured title 1`] = `
           }
         }
       />
-    </Component>
-  </Component>
-</Component>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`Card Component should have custom component as title 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "white",
@@ -363,7 +375,7 @@ exports[`Card Component should have custom component as title 1`] = `
     }
   }
 >
-  <Component
+  <View
     style={
       Object {
         "backgroundColor": "transparent",
@@ -372,13 +384,15 @@ exports[`Card Component should have custom component as title 1`] = `
   >
     <TextInput
       allowFontScaling={true}
+      rejectResponderTermination={true}
+      underlineColorAndroid="transparent"
     />
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
 exports[`Card Component should render without issues 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "white",
@@ -397,12 +411,12 @@ exports[`Card Component should render without issues 1`] = `
     }
   }
 >
-  <Component
+  <View
     style={
       Object {
         "backgroundColor": "transparent",
       }
     }
   />
-</Component>
+</View>
 `;

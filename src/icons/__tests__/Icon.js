@@ -22,7 +22,8 @@ describe('Icon component', () => {
         type="octicon"
         reverse
         color="red"
-        iconStyle={{ backgroundColor: 'peru' }}
+        iconStyle={{ backgroundColor: 'peru', borderRadius: 30 }}
+        onPress={jest.fn()}
       />
     );
 
@@ -66,7 +67,7 @@ describe('Icon component', () => {
   });
 
   it('should apply reverse styles', () => {
-    const component = shallow(<Icon name="wifi" reverse={true} />);
+    const component = shallow(<Icon name="wifi" reverse />);
     expect(toJson(component)).toMatchSnapshot();
   });
 
@@ -76,7 +77,20 @@ describe('Icon component', () => {
   });
 
   it('should apply raised styles', () => {
-    const component = shallow(<Icon name="wifi" raised={true} />);
+    const component = shallow(<Icon name="wifi" raised />);
+    expect(toJson(component)).toMatchSnapshot();
+  });
+
+  it('works on android with onPress', () => {
+    jest.mock('Platform', () => ({
+      OS: 'android',
+      Version: 25,
+      select(obj) {
+        return obj.android;
+      },
+    }));
+
+    const component = shallow(<Icon name="wifi" onPress={jest.fn()} />);
     expect(toJson(component)).toMatchSnapshot();
   });
 

@@ -2,10 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { create } from 'react-test-renderer';
-import { Avatar } from 'react-native-elements';
 
 import { ThemeProvider } from '../../config';
 
+import Avatar from '../../avatar/Avatar';
 import ThemedFeaturedTile, { FeaturedTile } from '../FeaturedTile';
 
 describe('FeaturedTitle component', () => {
@@ -78,6 +78,17 @@ describe('FeaturedTitle component', () => {
     );
 
     expect(component.length).toBe(1);
+    expect(toJson(component)).toMatchSnapshot();
+  });
+
+  it('should apply custom image props', () => {
+    const component = shallow(
+      <FeaturedTile
+        imageSrc={{ url: 'http://google.com' }}
+        imageProps={{ resizeMode: 'contain' }}
+      />
+    );
+
     expect(toJson(component)).toMatchSnapshot();
   });
 

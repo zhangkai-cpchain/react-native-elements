@@ -33,17 +33,15 @@ const FeaturedTile = props => {
     iconContainerStyle,
     titleStyle,
     captionStyle,
+    ImageComponent,
+    imageProps,
     ...attributes
   } = props;
 
-  let { width, height } = props;
-
-  if (!width) {
-    width = Dimensions.get('window').width;
-  }
-  if (!height) {
-    height = width * 0.8;
-  }
+  const {
+    width = Dimensions.get('window').width,
+    height = width * 0.8,
+  } = props;
 
   const styles = StyleSheet.create({
     container: {
@@ -53,14 +51,12 @@ const FeaturedTile = props => {
     imageContainer: {
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#ffffff',
       width,
       height,
     },
     overlayContainer: {
       flex: 1,
       alignItems: 'center',
-      backgroundColor: 'rgba(0,0,0,0.2)',
       alignSelf: 'stretch',
       justifyContent: 'center',
       paddingLeft: 25,
@@ -94,13 +90,14 @@ const FeaturedTile = props => {
         containerStyle && containerStyle,
       ])}
     >
-      <BackgroundImage
+      <ImageComponent
+        resizeMode="cover"
+        {...imageProps}
         source={imageSrc}
         style={StyleSheet.flatten([
           styles.imageContainer,
           imageContainerStyle && imageContainerStyle,
         ])}
-        resizeMode="cover"
       >
         <View
           style={StyleSheet.flatten([
@@ -125,7 +122,7 @@ const FeaturedTile = props => {
           </Text>
           {renderText(caption, { style: captionStyle }, styles.text)}
         </View>
-      </BackgroundImage>
+      </ImageComponent>
     </TouchableOpacity>
   );
 };
@@ -144,6 +141,13 @@ FeaturedTile.propTypes = {
   captionStyle: NativeText.propTypes.style,
   width: PropTypes.number,
   height: PropTypes.number,
+  ImageComponent: PropTypes.elementType,
+  imageProps: PropTypes.object,
+};
+
+FeaturedTile.defaultProps = {
+  ImageComponent: BackgroundImage,
+  imageProps: {},
 };
 
 export { FeaturedTile };

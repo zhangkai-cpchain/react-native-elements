@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import {
+  Platform,
+  StatusBar,
+  StyleSheet,
+  View,
+  ImageBackground,
+  Image,
+} from 'react-native';
 
 import { ViewPropTypes, getStatusBarHeight, withTheme } from '../config';
 import { renderNode, nodeType } from '../helpers';
@@ -21,17 +28,17 @@ const Children = ({ style, placement, children }) => (
     {children == null || children === false
       ? null
       : children.text
-        ? renderNode(Text, children.text, { numberOfLines: 1, ...children })
-        : children.icon
-          ? renderNode(Icon, {
-              ...children,
-              name: children.icon,
-              containerStyle: StyleSheet.flatten([
-                { alignItems: ALIGN_STYLE[placement] },
-                children.containerStyle,
-              ]),
-            })
-          : renderNode(Text, children)}
+      ? renderNode(Text, children.text, { numberOfLines: 1, ...children })
+      : children.icon
+      ? renderNode(Icon, {
+          ...children,
+          name: children.icon,
+          containerStyle: StyleSheet.flatten([
+            { alignItems: ALIGN_STYLE[placement] },
+            children.containerStyle,
+          ]),
+        })
+      : renderNode(Text, children)}
   </View>
 );
 
@@ -41,71 +48,95 @@ Children.propTypes = {
   children: PropTypes.oneOfType([nodeType, PropTypes.node]),
 };
 
-const Header = ({
-  statusBarProps,
-  leftComponent,
-  centerComponent,
-  rightComponent,
-  leftContainerStyle,
-  centerContainerStyle,
-  rightContainerStyle,
-  backgroundColor,
-  containerStyle,
-  placement,
-  barStyle,
-  children,
-  theme,
-  ...attributes
-}) => (
-  <View
-    testID="headerContainer"
-    {...attributes}
-    style={StyleSheet.flatten([
-      styles.container(theme),
-      backgroundColor && { backgroundColor },
+class Header extends Component {
+  componentDidMount() {
+    const { linearGradientProps, ViewComponent } = this.props;
+    if (linearGradientProps && !global.Expo && !ViewComponent) {
+      console.error(
+        "You need to pass a ViewComponent to use linearGradientProps !\nExample: ViewComponent={require('react-native-linear-gradient')}"
+      );
+    }
+  }
+
+  render() {
+    const {
+      statusBarProps,
+      leftComponent,
+      centerComponent,
+      rightComponent,
+      leftContainerStyle,
+      centerContainerStyle,
+      rightContainerStyle,
+      backgroundColor,
+      backgroundImage,
+      backgroundImageStyle,
       containerStyle,
-    ])}
-  >
-    <StatusBar barStyle={barStyle} {...statusBarProps} />
-    <Children
-      style={StyleSheet.flatten([
-        placement === 'center' && styles.rightLeftContainer,
-        leftContainerStyle,
-      ])}
-      placement="left"
-    >
-      {(React.isValidElement(children) && children) ||
-        children[0] ||
-        leftComponent}
-    </Children>
+      placement,
+      barStyle,
+      children,
+      linearGradientProps,
+      ViewComponent = linearGradientProps && global.Expo
+        ? global.Expo.LinearGradient
+        : ImageBackground,
+      theme,
+      ...attributes
+    } = this.props;
 
-    <Children
-      style={StyleSheet.flatten([
-        styles.centerContainer,
-        placement !== 'center' && {
-          paddingHorizontal: Platform.select({
-            android: 16,
-            default: 15,
-          }),
-        },
-        centerContainerStyle,
-      ])}
-      placement={placement}
-    >
-      {children[1] || centerComponent}
-    </Children>
+    return (
+      <ViewComponent
+        testID="headerContainer"
+        {...attributes}
+        style={StyleSheet.flatten([
+          styles.container(theme),
+          backgroundColor && { backgroundColor },
+          containerStyle,
+        ])}
+        source={backgroundImage}
+        imageStyle={backgroundImageStyle}
+        {...linearGradientProps}
+      >
+        <StatusBar barStyle={barStyle} {...statusBarProps} />
+        <Children
+          style={StyleSheet.flatten([
+            placement === 'center' && styles.rightLeftContainer,
+            leftContainerStyle,
+          ])}
+          placement="left"
+        >
+          {(React.isValidElement(children) && children) ||
+            children[0] ||
+            leftComponent}
+        </Children>
 
-    <Children
-      style={StyleSheet.flatten([
-        placement === 'center' && styles.rightLeftContainer,
-        rightContainerStyle,
-      ])}
-      placement="right"
-    >
-      {children[2] || rightComponent}
-    </Children>
-  </View>
-);
+        <Children
+          style={StyleSheet.flatten([
+            styles.centerContainer,
+            placement !== 'center' && {
+              paddingHorizontal: Platform.select({
+                android: 16,
+                default: 15,
+              }),
+            },
+            centerContainerStyle,
+          ])}
+          placement={placement}
+        >
+          {children[1] || centerComponent}
+        </Children>
+
+        <Children
+          style={StyleSheet.flatten([
+            placement === 'center' && styles.rightLeftContainer,
+            rightContainerStyle,
+          ])}
+          placement="right"
+        >
+          {children[2] || rightComponent}
+        </Children>
+      </ViewComponent>
+    );
+  }
+}
 
 Header.propTypes = {
   placement: PropTypes.oneOf(['left', 'center', 'right']),
@@ -116,6 +147,8 @@ Header.propTypes = {
   centerContainerStyle: ViewPropTypes.style,
   rightContainerStyle: ViewPropTypes.style,
   backgroundColor: PropTypes.string,
+  backgroundImage: Image.propTypes.source,
+  backgroundImageStyle: Image.propTypes.style,
   containerStyle: ViewPropTypes.style,
   statusBarProps: PropTypes.object,
   barStyle: PropTypes.oneOf(['default', 'light-content', 'dark-content']),
@@ -124,6 +157,8 @@ Header.propTypes = {
     PropTypes.node,
   ]),
   theme: PropTypes.object,
+  linearGradientProps: PropTypes.object,
+  ViewComponent: PropTypes.elementType,
 };
 
 Header.defaultProps = {
@@ -141,10 +176,11 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: (Platform.select({
-      android: 56,
-      default: 44
-    })) + getStatusBarHeight(),
+    height:
+      Platform.select({
+        android: 56,
+        default: 44,
+      }) + getStatusBarHeight(),
   }),
   centerContainer: {
     flex: 3,

@@ -73,22 +73,25 @@ import { Tile } from 'react-native-elements';
 > [TouchableOpacity](http://facebook.github.io/react-native/docs/touchableopacity.html#props)
 > (iOS) props
 
-* [`activeOpacity`](#activeopacity)
-* [`caption`](#caption)
-* [`captionStyle`](#captionstyle)
-* [`containerStyle`](#containerstyle)
-* [`contentContainerStyle`](#contentcontainerstyle)
-* [`featured`](#featured)
-* [`height`](#height)
-* [`icon`](#icon)
-* [`iconContainerStyle`](#iconcontainerstyle)
-* [`imageContainerStyle`](#imagecontainerstyle)
-* [`imageSrc`](#imagesrc)
-* [`onPress`](#onpress)
-* [`title`](#title)
-* [`titleNumberOfLines`](#titlenumberoflines)
-* [`titleStyle`](#titlestyle)
-* [`width`](#width)
+- [`activeOpacity`](#activeopacity)
+- [`caption`](#caption)
+- [`captionStyle`](#captionstyle)
+- [`containerStyle`](#containerstyle)
+- [`contentContainerStyle`](#contentcontainerstyle)
+- [`featured`](#featured)
+- [`height`](#height)
+- [`icon`](#icon)
+- [`iconContainerStyle`](#iconcontainerstyle)
+- [`imageContainerStyle`](#imagecontainerstyle)
+- [`imageProps`](#imageprops)
+- [`imageSrc`](#imagesrc)
+- [`onPress`](#onpress)
+- [`overlayContainerStyle`](#overlaycontainerstyle)
+- [`title`](#title)
+- [`titleNumberOfLines`](#titlenumberoflines)
+- [`titleStyle`](#titlestyle)
+- [`width`](#width)
+- [`ImageComponent`](#imagecomponent)
 
 ---
 
@@ -194,6 +197,16 @@ Styling for the image (optional)
 
 ---
 
+### `imageProps`
+
+Optional properties to pass to the image if provided e.g "resizeMode" (options)
+
+|                Type                | Default |
+| :--------------------------------: | :-----: |
+| {[...Image props](image.md#props)} |  none   |
+
+---
+
 ### `imageSrc`
 
 Source for the image (required)
@@ -211,6 +224,16 @@ Function to call when tile is pressed (optional)
 |       Type       | Default |
 | :--------------: | :-----: |
 | function (event) |  none   |
+
+---
+
+### `overlayContainerStyle`
+
+Styling for the overlay container when using featured tile (optional)
+
+|        Type         | Default |
+| :-----------------: | :-----: |
+| View style (object) |  none   |
 
 ---
 
@@ -251,3 +274,13 @@ Width for the tile (optional)
 |  Type  |   Default    |
 | :----: | :----------: |
 | number | Device Width |
+
+---
+
+### `ImageComponent`
+
+Custom ImageComponent for Tile
+
+|            Type            |     Default     |
+| :------------------------: | :-------------: |
+| React component or element | BackgroundImage |

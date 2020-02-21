@@ -80,25 +80,24 @@ render () {
 > [all native TouchableHighlight and TouchableOpacity props that come with React Native TouchableHighlight or TouchableOpacity elements](https://facebook.github.io/react-native/docs/touchablehighlight.html),
 > along with the following:
 
-* [`buttonStyle`](#buttonstyle)
-* [`buttons`](#buttons)
-* [`Component`](#Component)
-* [`containerBorderRadius`](#containerborderradius)
-* [`containerStyle`](#containerstyle)
-* [`disabled`](#disabled)
-* [`disabledStyle`](#disabledstyle)
-* [`disabledTextStyle`](#disabledtextstyle)
-* [`disabledSelectedStyle`](#disabledselectedstyle)
-* [`disabledSelectedTextStyle`](#disabledselectedtextstyle)
-* [`innerBorderStyle`](#innerborderstyle)
-* [`onPress`](#onpress)
-* [`selectMultiple`](#selectmultiple)
-* [`selectedButtonStyle`](#selectedbuttonstyle)
-* [`selectedIndex`](#selectedindex)
-* [`selectedIndexes`](#selectedindexes)
-* [`selectedTextStyle`](#selectedtextstyle)
-* [`textStyle`](#textstyle)
-* [`underlayColor`](#underlaycolor)
+- [`buttonStyle`](#buttonstyle)
+- [`buttons`](#buttons)
+- [`Component`](#Component)
+- [`containerStyle`](#containerstyle)
+- [`disabled`](#disabled)
+- [`disabledStyle`](#disabledstyle)
+- [`disabledTextStyle`](#disabledtextstyle)
+- [`disabledSelectedStyle`](#disabledselectedstyle)
+- [`disabledSelectedTextStyle`](#disabledselectedtextstyle)
+- [`innerBorderStyle`](#innerborderstyle)
+- [`onPress`](#onpress)
+- [`selectMultiple`](#selectmultiple)
+- [`selectedButtonStyle`](#selectedbuttonstyle)
+- [`selectedIndex`](#selectedindex)
+- [`selectedIndexes`](#selectedindexes)
+- [`selectedTextStyle`](#selectedtextstyle)
+- [`textStyle`](#textstyle)
+- [`underlayColor`](#underlaycolor)
 
 ---
 
@@ -132,16 +131,6 @@ Choose other button component such as TouchableOpacity (optional)
 |          Type          |      Default       |
 | :--------------------: | :----------------: |
 | React Native Component | TouchableHighlight |
-
----
-
-### `containerBorderRadius`
-
-Set's the border radius for the first and last button in the button group
-
-|  Type  | Default |
-| :----: | :-----: |
-| number |    3    |
 
 ---
 

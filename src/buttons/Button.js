@@ -9,6 +9,7 @@ import {
   Platform,
   StyleSheet,
 } from 'react-native';
+import Color from 'color';
 
 import { withTheme, ViewPropTypes } from '../config';
 import { renderNode, nodeType, conditionalStyle, color } from '../helpers';
@@ -23,12 +24,19 @@ class Button extends Component {
   componentDidMount() {
     const { linearGradientProps, ViewComponent } = this.props;
     if (linearGradientProps && !global.Expo && !ViewComponent) {
-      /* eslint-disable no-console */
       console.error(
-        `You need to pass a ViewComponent to use linearGradientProps !\nExample: ViewComponent={require('react-native-linear-gradient')}`
+        "You need to pass a ViewComponent to use linearGradientProps !\nExample: ViewComponent={require('react-native-linear-gradient')}"
       );
     }
   }
+
+  handleOnPress = () => {
+    const { loading, onPress } = this.props;
+
+    if (!loading) {
+      onPress();
+    }
+  };
 
   render() {
     const {
@@ -42,7 +50,7 @@ class Button extends Component {
       loadingProps: passedLoadingProps,
       title,
       titleProps,
-      titleStyle,
+      titleStyle: passedTitleStyle,
       icon,
       iconContainerStyle,
       iconRight,
@@ -58,24 +66,33 @@ class Button extends Component {
       ...attributes
     } = this.props;
 
-    if (
-      Platform.OS === 'android' &&
-      (buttonStyle.borderRadius && !attributes.background)
-    ) {
-      if (Platform.Version >= 21) {
-        attributes.background = TouchableNativeFeedback.Ripple(
-          'ThemeAttrAndroid',
-          true
-        );
-      } else {
-        attributes.background = TouchableNativeFeedback.SelectableBackground();
-      }
-    }
+    const titleStyle = StyleSheet.flatten([
+      styles.title(type, theme),
+      passedTitleStyle,
+      disabled && styles.disabledTitle(theme),
+      disabled && disabledTitleStyle,
+    ]);
+
+    const background =
+      Platform.OS === 'android' && Platform.Version >= 21
+        ? TouchableNativeFeedback.Ripple(
+            Color(titleStyle.color)
+              .alpha(0.32)
+              .rgb()
+              .string(),
+            false
+          )
+        : undefined;
 
     const loadingProps = {
       ...defaultLoadingProps(type, theme),
       ...passedLoadingProps,
     };
+
+    const accessibilityStates = [
+      ...(disabled ? ['disabled'] : []),
+      ...(loading ? ['busy'] : []),
+    ];
 
     return (
       <View
@@ -90,9 +107,13 @@ class Button extends Component {
         ])}
       >
         <TouchableComponent
-          onPress={onPress}
+          onPress={this.handleOnPress}
+          delayPressIn={0}
           activeOpacity={0.3}
+          accessibilityRole="button"
+          accessibilityStates={accessibilityStates}
           disabled={disabled}
+          background={background}
           {...attributes}
         >
           <ViewComponent
@@ -123,20 +144,11 @@ class Button extends Component {
                 ]),
               })}
 
-            {!loading &&
-              !!title && (
-                <Text
-                  style={StyleSheet.flatten([
-                    styles.title(type, theme),
-                    titleStyle,
-                    disabled && styles.disabledTitle(theme),
-                    disabled && disabledTitleStyle,
-                  ])}
-                  {...titleProps}
-                >
-                  {title}
-                </Text>
-              )}
+            {!loading && !!title && (
+              <Text style={titleStyle} {...titleProps}>
+                {title}
+              </Text>
+            )}
 
             {!loading &&
               icon &&
@@ -163,14 +175,14 @@ Button.propTypes = {
   loading: PropTypes.bool,
   loadingStyle: ViewPropTypes.style,
   loadingProps: PropTypes.object,
-  onPress: PropTypes.any,
+  onPress: PropTypes.func,
   containerStyle: ViewPropTypes.style,
   icon: nodeType,
   iconContainerStyle: ViewPropTypes.style,
   iconRight: PropTypes.bool,
   linearGradientProps: PropTypes.object,
-  TouchableComponent: PropTypes.any,
-  ViewComponent: PropTypes.any,
+  TouchableComponent: PropTypes.elementType,
+  ViewComponent: PropTypes.elementType,
   disabled: PropTypes.bool,
   disabledStyle: ViewPropTypes.style,
   disabledTitleStyle: Text.propTypes.style,
@@ -207,6 +219,7 @@ const styles = {
     borderColor: theme.colors.primary,
   }),
   container: {
+    overflow: 'hidden',
     borderRadius: 3,
   },
   disabled: (type, theme) => ({

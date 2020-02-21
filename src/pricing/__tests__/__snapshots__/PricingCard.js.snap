@@ -2,6 +2,7 @@
 
 exports[`PricingCard component should apply values from theme 1`] = `
 <View
+  replaceTheme={[Function]}
   style={
     Object {
       "backgroundColor": "white",
@@ -29,9 +30,6 @@ exports[`PricingCard component should apply values from theme 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#2089dc",
@@ -57,6 +55,22 @@ exports[`PricingCard component should apply values from theme 1`] = `
             "grey4": "#bdc6cf",
             "grey5": "#e1e8ee",
             "greyOutline": "#bbb",
+            "platform": Object {
+              "android": Object {
+                "error": "#f44336",
+                "primary": "#2196f3",
+                "secondary": "#9C27B0",
+                "success": "#4caf50",
+                "warning": "#ffeb3b",
+              },
+              "ios": Object {
+                "error": "#ff3b30",
+                "primary": "#007aff",
+                "secondary": "#5856d6",
+                "success": "#4cd964",
+                "warning": "#ffcc00",
+              },
+            },
             "primary": "#2089dc",
             "searchBg": "#303337",
             "secondary": "#8F0CE8",
@@ -65,14 +79,10 @@ exports[`PricingCard component should apply values from theme 1`] = `
           },
         }
       }
-      updateTheme={[Function]}
     >
       ALL YOU CAN EAT
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 50,
@@ -98,6 +108,22 @@ exports[`PricingCard component should apply values from theme 1`] = `
             "grey4": "#bdc6cf",
             "grey5": "#e1e8ee",
             "greyOutline": "#bbb",
+            "platform": Object {
+              "android": Object {
+                "error": "#f44336",
+                "primary": "#2196f3",
+                "secondary": "#9C27B0",
+                "success": "#4caf50",
+                "warning": "#ffeb3b",
+              },
+              "ios": Object {
+                "error": "#ff3b30",
+                "primary": "#007aff",
+                "secondary": "#5856d6",
+                "success": "#4cd964",
+                "warning": "#ffcc00",
+              },
+            },
             "primary": "#2089dc",
             "searchBg": "#303337",
             "secondary": "#8F0CE8",
@@ -106,14 +132,10 @@ exports[`PricingCard component should apply values from theme 1`] = `
           },
         }
       }
-      updateTheme={[Function]}
     >
       $0
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#86939e",
@@ -139,6 +161,22 @@ exports[`PricingCard component should apply values from theme 1`] = `
             "grey4": "#bdc6cf",
             "grey5": "#e1e8ee",
             "greyOutline": "#bbb",
+            "platform": Object {
+              "android": Object {
+                "error": "#f44336",
+                "primary": "#2196f3",
+                "secondary": "#9C27B0",
+                "success": "#4caf50",
+                "warning": "#ffeb3b",
+              },
+              "ios": Object {
+                "error": "#ff3b30",
+                "primary": "#007aff",
+                "secondary": "#5856d6",
+                "success": "#4cd964",
+                "warning": "#ffcc00",
+              },
+            },
             "primary": "#2089dc",
             "searchBg": "#303337",
             "secondary": "#8F0CE8",
@@ -147,14 +185,10 @@ exports[`PricingCard component should apply values from theme 1`] = `
           },
         }
       }
-      updateTheme={[Function]}
     >
       1 User
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#86939e",
@@ -180,6 +214,22 @@ exports[`PricingCard component should apply values from theme 1`] = `
             "grey4": "#bdc6cf",
             "grey5": "#e1e8ee",
             "greyOutline": "#bbb",
+            "platform": Object {
+              "android": Object {
+                "error": "#f44336",
+                "primary": "#2196f3",
+                "secondary": "#9C27B0",
+                "success": "#4caf50",
+                "warning": "#ffeb3b",
+              },
+              "ios": Object {
+                "error": "#ff3b30",
+                "primary": "#007aff",
+                "secondary": "#5856d6",
+                "success": "#4cd964",
+                "warning": "#ffcc00",
+              },
+            },
             "primary": "#2089dc",
             "searchBg": "#303337",
             "secondary": "#8F0CE8",
@@ -188,14 +238,10 @@ exports[`PricingCard component should apply values from theme 1`] = `
           },
         }
       }
-      updateTheme={[Function]}
     >
       Basic Support
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#86939e",
@@ -221,6 +267,22 @@ exports[`PricingCard component should apply values from theme 1`] = `
             "grey4": "#bdc6cf",
             "grey5": "#e1e8ee",
             "greyOutline": "#bbb",
+            "platform": Object {
+              "android": Object {
+                "error": "#f44336",
+                "primary": "#2196f3",
+                "secondary": "#9C27B0",
+                "success": "#4caf50",
+                "warning": "#ffeb3b",
+              },
+              "ios": Object {
+                "error": "#ff3b30",
+                "primary": "#007aff",
+                "secondary": "#5856d6",
+                "success": "#4cd964",
+                "warning": "#ffcc00",
+              },
+            },
             "primary": "#2089dc",
             "searchBg": "#303337",
             "secondary": "#8F0CE8",
@@ -229,7 +291,6 @@ exports[`PricingCard component should apply values from theme 1`] = `
           },
         }
       }
-      updateTheme={[Function]}
     >
       All Core Features
     </Text>
@@ -237,10 +298,13 @@ exports[`PricingCard component should apply values from theme 1`] = `
       style={
         Object {
           "borderRadius": 3,
+          "overflow": "hidden",
         }
       }
     >
       <View
+        accessibilityRole="button"
+        accessibilityStates={Array []}
         accessible={true}
         isTVSelectable={true}
         onResponderGrant={[Function]}
@@ -271,15 +335,15 @@ exports[`PricingCard component should apply values from theme 1`] = `
             }
           }
         >
-          <View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "justifyContent": "center",
-                }
+          <View
+            style={
+              Object {
+                "overflow": "hidden",
               }
+            }
+          >
+            <View
+              replaceTheme={[Function]}
               theme={
                 Object {
                   "PricingCard": Object {
@@ -296,6 +360,22 @@ exports[`PricingCard component should apply values from theme 1`] = `
                     "grey4": "#bdc6cf",
                     "grey5": "#e1e8ee",
                     "greyOutline": "#bbb",
+                    "platform": Object {
+                      "android": Object {
+                        "error": "#f44336",
+                        "primary": "#2196f3",
+                        "secondary": "#9C27B0",
+                        "success": "#4caf50",
+                        "warning": "#ffeb3b",
+                      },
+                      "ios": Object {
+                        "error": "#ff3b30",
+                        "primary": "#007aff",
+                        "secondary": "#5856d6",
+                        "success": "#4cd964",
+                        "warning": "#ffcc00",
+                      },
+                    },
                     "primary": "#2089dc",
                     "searchBg": "#303337",
                     "secondary": "#8F0CE8",
@@ -304,40 +384,46 @@ exports[`PricingCard component should apply values from theme 1`] = `
                   },
                 }
               }
-              underlayColor="white"
               updateTheme={[Function]}
             >
-              <Text
-                accessible={true}
-                allowFontScaling={false}
-                ellipsizeMode="tail"
+              <View
                 style={
-                  Array [
-                    Object {
-                      "color": "white",
-                      "fontSize": 15,
-                    },
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    Object {
-                      "fontFamily": "Material Icons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "justifyContent": "center",
+                  }
                 }
-                testID="iconIcon"
               >
-                
-              </Text>
+                <Text
+                  allowFontScaling={false}
+                  brand={false}
+                  solid={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 15,
+                      },
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
+                      Object {
+                        "fontFamily": "Material Icons",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                  testID="iconIcon"
+                >
+                  
+                </Text>
+              </View>
             </View>
           </View>
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "white",
@@ -357,8 +443,125 @@ exports[`PricingCard component should apply values from theme 1`] = `
 </View>
 `;
 
+exports[`PricingCard component should render titleStyle 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "borderColor": "#e1e8ee",
+      "borderWidth": 1,
+      "margin": 15,
+      "marginBottom": 15,
+      "padding": 15,
+      "shadowColor": "rgba(0,0,0, .2)",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.5,
+      "shadowRadius": 0.5,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <Themed.Text
+      style={
+        Object {
+          "color": "#2089dc",
+          "fontSize": 37.5,
+          "fontWeight": "800",
+          "textAlign": "center",
+        }
+      }
+      testID="pricingCardTitle"
+    />
+    <Themed.Text
+      style={
+        Object {
+          "fontSize": 50,
+          "fontWeight": "700",
+          "marginBottom": 10,
+          "marginTop": 10,
+          "textAlign": "center",
+        }
+      }
+    />
+    <Themed.Text
+      key="1 User"
+      style={
+        Object {
+          "color": "#86939e",
+          "fontWeight": "600",
+          "marginBottom": 5,
+          "marginTop": 5,
+          "textAlign": "center",
+        }
+      }
+    >
+      1 User
+    </Themed.Text>
+    <Themed.Text
+      key="Basic Support"
+      style={
+        Object {
+          "color": "#86939e",
+          "fontWeight": "600",
+          "marginBottom": 5,
+          "marginTop": 5,
+          "textAlign": "center",
+        }
+      }
+    >
+      Basic Support
+    </Themed.Text>
+    <Themed.Text
+      key="All Core Features"
+      style={
+        Object {
+          "color": "#86939e",
+          "fontWeight": "600",
+          "marginBottom": 5,
+          "marginTop": 5,
+          "textAlign": "center",
+        }
+      }
+    >
+      All Core Features
+    </Themed.Text>
+    <ForwardRef(Themed.Button)
+      buttonStyle={
+        Object {
+          "backgroundColor": "#2089dc",
+          "marginBottom": 10,
+          "marginTop": 15,
+        }
+      }
+      icon={
+        <Themed.Icon
+          color="white"
+          name="flight-takeoff"
+          size={15}
+        />
+      }
+      title="GET STARTED"
+      titleStyle={
+        Object {
+          "fontSize": 30,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
 exports[`PricingCard component should render with props 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "peru",
@@ -377,7 +580,7 @@ exports[`PricingCard component should render with props 1`] = `
     }
   }
 >
-  <Component
+  <View
     style={
       Object {
         "backgroundColor": "peru",
@@ -413,7 +616,7 @@ exports[`PricingCard component should render with props 1`] = `
       $0
     </Themed.Text>
     <Themed.Text
-      key="0"
+      key="1 User"
       style={
         Object {
           "color": "#86939e",
@@ -428,7 +631,7 @@ exports[`PricingCard component should render with props 1`] = `
       1 User
     </Themed.Text>
     <Themed.Text
-      key="1"
+      key="Basic Support"
       style={
         Object {
           "color": "#86939e",
@@ -443,7 +646,7 @@ exports[`PricingCard component should render with props 1`] = `
       Basic Support
     </Themed.Text>
     <Themed.Text
-      key="2"
+      key="All Core Features"
       style={
         Object {
           "color": "#86939e",
@@ -474,12 +677,12 @@ exports[`PricingCard component should render with props 1`] = `
       }
       title="GET STARTED"
     />
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
 exports[`PricingCard component should render without info 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "white",
@@ -498,7 +701,7 @@ exports[`PricingCard component should render without info 1`] = `
     }
   }
 >
-  <Component
+  <View
     style={
       Object {
         "backgroundColor": "transparent",
@@ -544,12 +747,12 @@ exports[`PricingCard component should render without info 1`] = `
       }
       title="GET STARTED"
     />
-  </Component>
-</Component>
+  </View>
+</View>
 `;
 
 exports[`PricingCard component should render without issues 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "white",
@@ -568,7 +771,7 @@ exports[`PricingCard component should render without issues 1`] = `
     }
   }
 >
-  <Component
+  <View
     style={
       Object {
         "backgroundColor": "transparent",
@@ -598,7 +801,7 @@ exports[`PricingCard component should render without issues 1`] = `
       }
     />
     <Themed.Text
-      key="0"
+      key="1 User"
       style={
         Object {
           "color": "#86939e",
@@ -612,7 +815,7 @@ exports[`PricingCard component should render without issues 1`] = `
       1 User
     </Themed.Text>
     <Themed.Text
-      key="1"
+      key="Basic Support"
       style={
         Object {
           "color": "#86939e",
@@ -626,7 +829,7 @@ exports[`PricingCard component should render without issues 1`] = `
       Basic Support
     </Themed.Text>
     <Themed.Text
-      key="2"
+      key="All Core Features"
       style={
         Object {
           "color": "#86939e",
@@ -656,6 +859,6 @@ exports[`PricingCard component should render without issues 1`] = `
       }
       title="GET STARTED"
     />
-  </Component>
-</Component>
+  </View>
+</View>
 `;

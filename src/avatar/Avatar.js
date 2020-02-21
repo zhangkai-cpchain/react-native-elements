@@ -111,6 +111,9 @@ const Avatar = ({
       />
     ));
 
+  // Remove placeholder styling if we're not using image
+  const hidePlaceholder = !source;
+
   return (
     <Component
       onPress={onPress}
@@ -124,12 +127,15 @@ const Avatar = ({
       {...attributes}
     >
       <Image
-        placeholderStyle={placeholderStyle}
+        placeholderStyle={StyleSheet.flatten([
+          placeholderStyle,
+          hidePlaceholder && { backgroundColor: 'transparent' },
+        ])}
         PlaceholderContent={PlaceholderContent}
         containerStyle={StyleSheet.flatten([
           styles.overlayContainer,
-          overlayContainerStyle,
           rounded && { borderRadius: width / 2, overflow: 'hidden' },
+          overlayContainerStyle,
         ])}
         source={source}
         {...imageProps}
@@ -220,7 +226,7 @@ Avatar.propTypes = {
   placeholderStyle: ViewPropTypes.style,
   renderPlaceholderContent: nodeType,
   imageProps: PropTypes.object,
-  ImageComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  ImageComponent: PropTypes.elementType,
 };
 
 Avatar.defaultProps = {

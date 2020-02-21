@@ -1,23 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Platform, Image, StyleSheet } from 'react-native';
+import { View, Platform, Image as ImageNative, StyleSheet } from 'react-native';
 
 import normalize from '../helpers/normalizeText';
-import {
-  BackgroundImage,
-  fonts,
-  TextPropTypes,
-  ViewPropTypes,
-  withTheme,
-} from '../config';
+import { fonts, TextPropTypes, ViewPropTypes, withTheme } from '../config';
 
 import Text from '../text/Text';
 import Divider from '../divider/Divider';
+import Image from '../image/Image';
 
 const Card = props => {
   const {
     children,
-    flexDirection,
     containerStyle,
     wrapperStyle,
     imageWrapperStyle,
@@ -31,7 +25,6 @@ const Card = props => {
     dividerStyle,
     image,
     imageStyle,
-    fontFamily,
     imageProps,
     theme,
     ...attributes
@@ -50,7 +43,6 @@ const Card = props => {
         style={StyleSheet.flatten([
           styles.wrapper,
           wrapperStyle && wrapperStyle,
-          flexDirection && { flexDirection },
         ])}
       >
         {title === '' || React.isValidElement(title)
@@ -64,12 +56,12 @@ const Card = props => {
                     styles.cardTitle(theme),
                     image && styles.imageCardTitle,
                     titleStyle && titleStyle,
-                    fontFamily && { fontFamily },
                   ])}
                   numberOfLines={titleNumberOfLines}
                 >
                   {title}
                 </Text>
+
                 {!image && (
                   <Divider
                     style={StyleSheet.flatten([
@@ -80,9 +72,10 @@ const Card = props => {
                 )}
               </View>
             )}
+
         {image && (
           <View style={imageWrapperStyle && imageWrapperStyle}>
-            <BackgroundImage
+            <Image
               style={[{ width: null, height: 150 }, imageStyle && imageStyle]}
               source={image}
               {...imageProps}
@@ -111,7 +104,8 @@ const Card = props => {
                   )}
                 </View>
               )}
-            </BackgroundImage>
+            </Image>
+
             <View
               style={StyleSheet.flatten([
                 { padding: 10 },
@@ -122,6 +116,7 @@ const Card = props => {
             </View>
           </View>
         )}
+
         {!image && children}
       </View>
     </View>
@@ -129,8 +124,10 @@ const Card = props => {
 };
 
 Card.propTypes = {
-  children: PropTypes.any,
-  flexDirection: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
   containerStyle: ViewPropTypes.style,
   wrapperStyle: ViewPropTypes.style,
   overlayStyle: ViewPropTypes.style,
@@ -141,10 +138,9 @@ Card.propTypes = {
   featuredSubtitle: PropTypes.string,
   featuredSubtitleStyle: TextPropTypes.style,
   dividerStyle: ViewPropTypes.style,
-  image: Image.propTypes.source,
+  image: ImageNative.propTypes.source,
   imageStyle: ViewPropTypes.style,
   imageWrapperStyle: ViewPropTypes.style,
-  fontFamily: PropTypes.string,
   imageProps: PropTypes.object,
   titleNumberOfLines: PropTypes.number,
   theme: PropTypes.object,

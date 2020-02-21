@@ -22,57 +22,30 @@ of items directly impacts a user's ability to find one of them.
 
 ## Usage
 
-```js
-import { SearchBar } from 'react-native-elements'
+```jsx
+import { SearchBar } from 'react-native-elements';
 
-<SearchBar
-  onChangeText={someMethod}
-  onClear={someMethod}
-  placeholder='Type Here...' />
+export default class App extends React.Component {
+  state = {
+    search: '',
+  };
 
-<SearchBar
-  clearIcon={{ color: 'red' }}
-  searchIcon={false} // You could have passed `null` too
-  onChangeText={someMethod}
-  onClear={someMethod}
-  placeholder='Type Here...' />
+  updateSearch = search => {
+    this.setState({ search });
+  };
 
-<SearchBar
-  round
-  searchIcon={{ size: 24 }}
-  onChangeText={someMethod}
-  onClear={someMethod}
-  placeholder='Type Here...' />
+  render() {
+    const { search } = this.state;
 
-<SearchBar
-  lightTheme
-  searchIcon={<CustomComponent />}
-  onChangeText={someMethod}
-  onClear={someMethod}
-  placeholder='Type Here...' />
-
-<SearchBar
-  lightTheme
-  onChangeText={someMethod}
-  onClear={someMethod}
-  placeholder='Type Here...' />
-
-<SearchBar
-  showLoading
-  platform="ios"
-  cancelButtonTitle="Cancel"
-  placeholder='Search' />
-
-<SearchBar
-  showLoading
-  platform="android"
-  placeholder='Search' />
-
-<SearchBar
-  showLoading
-  platform="android"
-  cancelIcon={{ type: 'font-awesome', name: 'chevron-left' }}
-  placeholder='Search' />
+    return (
+      <SearchBar
+        placeholder="Type Here..."
+        onChangeText={this.updateSearch}
+        value={search}
+      />
+    );
+  }
+}
 ```
 
 ---
@@ -80,35 +53,35 @@ import { SearchBar } from 'react-native-elements'
 ## Props
 
 > This component inherits all
-> [React Native Elements Input props](/react-native-elements/docs/input.html#props),
+> [React Native Elements Input props](input.md#props),
 > which means
 > [all native TextInput props that come with a standard React Native TextInput element](https://facebook.github.io/react-native/docs/textinput.html),
 > along with the following:
 
-* [`platform`](#platform)
-* [`clearIcon`](#clearicon)
-* [`searchIcon`](#searchIcon)
-* [`cancelIcon`](#cancelicon-platform-android-only) (**`platform="android"`
+- [`platform`](#platform)
+- [`clearIcon`](#clearicon)
+- [`searchIcon`](#searchicon)
+- [`cancelIcon`](#cancelicon-platform-android-only) (**`platform="android"`
   only**)
-* [`containerStyle`](#containerstyle)
-* [`inputContainerStyle`](#inputcontainerstyle)
-* [`inputStyle`](#inputstyle)
-* [`leftIconContainerStyle`](#lefticoncontainerstyle)
-* [`rightIconContainerStyle`](#righticoncontainerstyle)
-* [`lightTheme`](#lighttheme-platform-default-only) (**`platform="default"`
+- [`containerStyle`](#containerstyle)
+- [`inputContainerStyle`](#inputcontainerstyle)
+- [`inputStyle`](#inputstyle)
+- [`leftIconContainerStyle`](#lefticoncontainerstyle)
+- [`rightIconContainerStyle`](#righticoncontainerstyle)
+- [`lightTheme`](#lighttheme-platform-default-only) (**`platform="default"`
   only**)
-* [`loadingProps`](#loadingprops)
-* [`noIcon`](#noicon)
-* [`onChangeText`](#onchangetext)
-* [`onClear`](#onclear)
-* [`placeholder`](#placeholder)
-* [`placeholderTextColor`](#placeholdertextcolor)
-* [`round`](#round-platform-default-only) (**`platform="default"` only**)
-* [`showLoading`](#showloading)
-* [`underlineColorAndroid`](#underlinecolorandroid)
-* [`cancelButtonTitle`](#cancelbuttontitle)
-* [`cancelButtonProps`](#cancelbuttonprops)
-* [`onCancel`](#oncancel)
+- [`loadingProps`](#loadingprops)
+- [`onChangeText`](#onchangetext)
+- [`onClear`](#onclear)
+- [`placeholder`](#placeholder)
+- [`placeholderTextColor`](#placeholdertextcolor)
+- [`round`](#round-platform-default-only) (**`platform="default"` only**)
+- [`showCancel`](#showcancel-platform-ios-only) (**`platform="ios"` only**)
+- [`showLoading`](#showloading)
+- [`underlineColorAndroid`](#underlinecolorandroid)
+- [`cancelButtonTitle`](#cancelbuttontitle)
+- [`cancelButtonProps`](#cancelbuttonprops)
+- [`onCancel`](#oncancel)
 
 ---
 
@@ -129,9 +102,9 @@ choose the look and feel of the search bar. One of "default", "ios", "android"
 This props allows to override the `Icon` props or use a custom component. Use
 `null` or `false` to hide the icon.
 
-|                                             Type                                              | Default |
-| :-------------------------------------------------------------------------------------------: | :-----: |
-| {[...Icon props](/react-native-elements/docs/icon.html#icon-props)}<br/>**OR**<br/> component |  none   |
+|                            Type                            | Default |
+| :--------------------------------------------------------: | :-----: |
+| {[...Icon props](icon.md#props)}<br/>**OR**<br/> component |  none   |
 
 ---
 
@@ -140,9 +113,9 @@ This props allows to override the `Icon` props or use a custom component. Use
 This props allows to override the `Icon` props or use a custom component. Use
 `null` or `false` to hide the icon.
 
-|                                             Type                                              | Default |
-| :-------------------------------------------------------------------------------------------: | :-----: |
-| {[...Icon props](/react-native-elements/docs/icon.html#icon-props)}<br/>**OR**<br/> component |  none   |
+|                            Type                            | Default |
+| :--------------------------------------------------------: | :-----: |
+| {[...Icon props](icon.md#props)}<br/>**OR**<br/> component |  none   |
 
 ---
 
@@ -151,9 +124,9 @@ This props allows to override the `Icon` props or use a custom component. Use
 This props allows to override the `Icon` props or use a custom component. Use
 `null` or `false` to hide the icon.
 
-|                                             Type                                              | Default |
-| :-------------------------------------------------------------------------------------------: | :-----: |
-| {[...Icon props](/react-native-elements/docs/icon.html#icon-props)}<br/>**OR**<br/> component |  none   |
+|                            Type                            | Default |
+| :--------------------------------------------------------: | :-----: |
+| {[...Icon props](icon.md#props)}<br/>**OR**<br/> component |  none   |
 
 ---
 
@@ -277,6 +250,16 @@ change TextInput styling to rounded corners
 
 ---
 
+### `showCancel` (**`platform="ios"` only**)
+
+When `true` the cancel button will stay visible after blur events.
+
+|  Type   | Default |
+| :-----: | :-----: |
+| boolean |  false  |
+
+---
+
 ### `showLoading`
 
 show the loading ActivityIndicator effect
@@ -315,12 +298,12 @@ specify other than the default transparent underline color
 > [TouchableOpacity](http://facebook.github.io/react-native/docs/touchableopacity.html#props)
 > props
 
-* [`buttonStyle`](#buttonstyle)
-* [`buttonTextStyle`](#buttontextstyle)
-* [`color`](#color)
-* [`disabled`](#disabled)
-* [`buttonDisabledStyle`](#buttondisabledstyle)
-* [`buttonDisabledTextStyle`](#buttondisabledtextstyle)
+- [`buttonStyle`](#buttonstyle)
+- [`buttonTextStyle`](#buttontextstyle)
+- [`color`](#color)
+- [`disabled`](#disabled)
+- [`buttonDisabledStyle`](#buttondisabledstyle)
+- [`buttonDisabledTextStyle`](#buttondisabledtextstyle)
 
 #### `buttonStyle`
 

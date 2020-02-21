@@ -32,12 +32,10 @@ Installing React Native Elements depends on your type of react native project.
 projects include **react-native-vector-icons** out of the box, so all you need
 to do is install **react-native-elements**.
 
-```bash
-# yarn
-yarn add react-native-elements@beta
-
-# npm
-npm install --save react-native-elements@beta
+```
+yarn add react-native-elements
+# or with npm
+npm install react-native-elements
 ```
 
 > **Note:** If you see the `UNMET PEER DEPENDENCY` warning for
@@ -54,12 +52,10 @@ installation instructions:
 
 ### Step 1: Install react-native-elements
 
-```bash
-# yarn
-yarn add react-native-elements@beta
-
-# npm
-npm i react-native-elements@beta --save
+```
+yarn add react-native-elements
+# or with npm
+npm i react-native-elements --save
 ```
 
 ### Step 2: Install react-native-vector-icons
@@ -67,11 +63,12 @@ npm i react-native-elements@beta --save
 If you have already installed **react-native-vector-icons** as a dependency for
 your project you can skip this step. Otherwise run the following command:
 
-```bash
+> _Manual linking of react-native-vector-icons is not necessary if you're using react-native@0.60.0 or above since it is done automatically. This will throw an error though it won't prevent the application from running. To fix this you'll simply have to run `react-native unlink react-native-vector-icons` and the process will run as expected._
+
+```
 # yarn
 yarn add react-native-vector-icons
-
-# npm
+# or with npm
 npm i --save react-native-vector-icons
 
 # link
@@ -82,7 +79,7 @@ _If you have any issues installing react-native-vector-icons, check out their
 installation guide
 [here](https://github.com/oblador/react-native-vector-icons#installation) or
 debug it using
-[this issue](https://github.com/react-native-training/react-native-elements/issues/503)._
+[this issue](https://github.com/react-native-elements/react-native-elements/issues/503)._
 
 <script>
   function displayTab(value) {

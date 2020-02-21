@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, View, Text } from 'react-native';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import renderer from 'react-test-renderer';
@@ -24,7 +24,6 @@ describe('CheckBox Component', () => {
   });
 
   it('should allow to pass custom component', () => {
-    const View = jest.fn();
     const component = shallow(<CheckBox theme={theme} Component={View} />);
 
     expect(component.find(View).exists()).toBe(true);
@@ -35,8 +34,22 @@ describe('CheckBox Component', () => {
       <CheckBox theme={theme} title="Custom Text" checked />
     );
 
+    expect(toJson(component)).toMatchSnapshot();
     expect(component.props().children.props.children[1].props.children).toBe(
       'Custom Text'
+    );
+  });
+
+  it('should allow title to be custom component', () => {
+    shallow(
+      <CheckBox
+        theme={theme}
+        title={
+          <View>
+            <Text>Custom Component!</Text>
+          </View>
+        }
+      />
     );
   });
 
@@ -74,7 +87,7 @@ describe('CheckBox Component', () => {
     const component = shallow(
       <CheckBox
         theme={theme}
-        checked={true}
+        checked
         checkedIcon={
           <Image
             source={{ uri: 'https://image.ibb.co/jcY95H/checked.png' }}
@@ -94,7 +107,23 @@ describe('CheckBox Component', () => {
     expect(toJson(component)).toMatchSnapshot();
   });
 
-  it('should allow custom checked Icon', () => {
+  it('should allow passing props to the title', () => {
+    const component = shallow(
+      <CheckBox
+        theme={theme}
+        checked
+        title="Yea"
+        titleProps={{ numberOfLines: 2 }}
+      />
+    );
+
+    expect(toJson(component)).toMatchSnapshot();
+    expect(
+      component.find({ testID: 'checkboxTitle' }).props().numberOfLines
+    ).toBe(2);
+  });
+
+  it('should allow custom checked Icon when unchecked', () => {
     const component = shallow(
       <CheckBox
         theme={theme}
@@ -119,14 +148,14 @@ describe('CheckBox Component', () => {
   });
 
   it('should use values from theme', () => {
-    const theme = {
+    const testTheme = {
       CheckBox: {
         title: 'George is Cool',
       },
     };
 
     const component = renderer.create(
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={testTheme}>
         <ThemedCheckBox />
       </ThemeProvider>
     );
