@@ -100,7 +100,7 @@ const ListItem = props => {
   return (
     <Component
       {...attributes}
-      onPress={e => onPress(e, props)}
+      onPress={onPress}
       onLongPress={onLongPress}
       disabled={disabled}
     >
