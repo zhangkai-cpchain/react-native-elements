@@ -1,176 +1,165 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {
-  StyleSheet,
-  FlatList,
-  View,
-  Modal,
-  TouchableOpacity,
-  Dimensions,
-} from 'react-native';
-import renderNode from '../helpers/renderNode';
-import nodeType from '../helpers/nodeType';
-import Icon from '../icons/Icon';
-import ListItem from '../list/ListItem';
-import { getStatusBarHeight, ViewPropTypes } from '../config';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { Modal, Platform, StatusBar, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, View, ViewPropTypes } from 'react-native'
+import { getStatusBarHeight } from '../config'
 
-const { height: HEIGHT } = Dimensions.get('window');
-const CLOSE_BOTTOM = 8 + (false ? 20 : 0);
+export default class Dropdown extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      visible: false,
+      top: null,
+      left: null,
+      width: null,
+      height: null,
+    }
+  }
 
-export default class DropDown extends React.PureComponent {
-  keyExtractor = item =>
-    typeof item === 'string' ? item : item.key || item.title;
+  show = () => {
+    const { onShow, theme } = this.props
+    this.measure(true)
+    onShow()
+    Platform.OS === 'android' && StatusBar.setBackgroundColor(theme.colors.get('background.dark'))
+  }
 
-  onPressItem = (e, item) =>
-    this.props.onPressItem && this.props.onPressItem(item, item.index);
+  hide = () => {
+    this.setState({ visible: false })
+    this.measure(false)
+    Platform.OS === 'android' && StatusBar.setBackgroundColor('transparent')
+  }
 
-  renderItem = ({ item, index }) => (
-    <ListItem
-      index={index}
-      onPress={this.onPressItem}
-      title={typeof item === 'string' ? item : item.title}
-      {...this.props.getListItemProps(item, index)}
-      {...(typeof item === 'object' ? item : null)}
-    />
-  );
+  toggle = () => (this.state.visible ? this.hide() : this.show())
+
+  getSelectorPosition = () => {
+    const { top, left, width } = this.state
+    return {
+      width,
+      top,
+      left,
+    }
+  }
+
+  measure = (visible = false) => {
+    this.selector.measure((fx, fy, width, height, px, py) => {
+      this.setState({
+        top: py - (Platform.OS === 'android' ? getStatusBarHeight() : 0),
+        left: px,
+        width,
+        height,
+        visible,
+      })
+    })
+  }
+
+  onChange = (index, option) => {
+    const { onChange } = this.props
+    // The omit lodash returns an object so the index is a string...
+    onChange(parseInt(index, 10), option)
+    this.hide()
+  }
+
+  renderSelector = withRef => {
+    const {
+      style,
+      options,
+      selectedIndex,
+      renderItem,
+      renderSelectedItem = renderItem,
+    } = this.props
+
+    return (
+      <View style={style} collapsable={false} ref={ref => (this.selector = ref)}>
+        <TouchableOpacity onPress={this.toggle}>
+          {renderSelectedItem(options[selectedIndex])}
+        </TouchableOpacity>
+      </View>
+    )
+  }
+
+  renderOptions = () => {
+    const { options, optionsContainerStyle, keyExtractor, renderItem, theme } = this.props
+    const { height, width } = this.state
+    return (
+      <View
+        animation="fadeIn"
+        duration={300}
+        style={[
+          styles.optionsContainer,
+          { paddingTop: height, width, backgroundColor: theme.colors.get('background.default') },
+          optionsContainerStyle,
+        ]}>
+        {options.map((option, index) => (
+          <View key={keyExtractor(option, index)}>
+            <TouchableOpacity onPress={() => this.onChange(index, option)}>
+              {renderItem(option, index)}
+            </TouchableOpacity>
+          </View>
+        ))}
+      </View>
+    )
+  }
+
+  renderModal = () => {
+    const { visible } = this.state
+    const { theme } = this.props
+    if (!visible) {
+      return null
+    }
+    return (
+      <Modal onRequestClose={this.hide} animationType="fade" visible={visible} transparent>
+        <TouchableWithoutFeedback onPress={this.hide}>
+          <View
+            style={{
+              width: '100%',
+              height: '100%',
+              backgroundColor: theme.colors.get('background.dark'),
+            }}>
+            <View style={[styles.selector, this.getSelectorPosition()]}>
+              {this.renderOptions()}
+              {this.renderSelector()}
+            </View>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
+    )
+  }
 
   render() {
-    const {
-      renderGradientComponent: GradientComponent,
-      renderListComponent: ListComponent,
-      renderBlurComponent: BlurView,
-      containerStyle,
-      contentContainerStyle,
-      backgroundColor,
-      closeIcon,
-      visible,
-      modalProps,
-      onClose,
-      transparent,
-      blurProps,
-      contentPosition = transparent ? 'center' : 'bottom',
-      ...props
-    } = this.props;
     return (
-      <Modal
-        transparent={transparent}
-        onRequestClose={onClose}
-        visible={visible}
-        {...modalProps}
-      >
-        <View
-          style={[
-            styles.container,
-            !transparent && { backgroundColor },
-            containerStyle,
-          ]}
-        >
-          {transparent && (
-            <BlurView
-              {...blurProps}
-              tint="dark"
-              intensity={100}
-              style={StyleSheet.absoluteFillObject}
-            />
-          )}
-          <ListComponent
-            keyExtractor={this.keyExtractor}
-            showsVerticalScrollIndicator={false}
-            renderItem={this.renderItem}
-            {...props}
-            contentContainerStyle={[
-              styles.contentContainer,
-              contentPosition === 'center' && styles.centerContentContainer,
-              contentPosition === 'bottom' && styles.bottomContentContainer,
-              contentContainerStyle,
-            ]}
-          />
-          {!transparent && (
-            <GradientComponent
-              pointerEvents="none"
-              style={StyleSheet.absoluteFillObject}
-              colors={[
-                hexToTransparentRGB(backgroundColor),
-                hexToTransparentRGB(backgroundColor, 0.8),
-                hexToTransparentRGB(backgroundColor, 0.9),
-              ]}
-              locations={[0.8, 0.9, 1]}
-            />
-          )}
-          {renderNode(Icon, closeIcon, {
-            type: 'ionicon',
-            size: 52,
-            component: TouchableOpacity,
-            containerStyle: styles.closeContainer,
-            color: transparent ? 'white' : 'black',
-            name: transparent ? 'ios-close-circle' : 'ios-close',
-            onPress: onClose,
-          })}
-        </View>
-      </Modal>
-    );
+      <View>
+        {this.renderSelector(true)}
+        {this.renderModal()}
+      </View>
+    )
   }
 }
 
+Dropdown.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object])).isRequired,
+  selectedIndex: PropTypes.number,
+  renderItem: PropTypes.func.isRequired,
+  renderSelectedItem: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
+  keyExtractor: PropTypes.func,
+  onShow: PropTypes.func,
+  style: ViewPropTypes.style,
+  optionsContainerStyle: ViewPropTypes.style,
+}
+
+Dropdown.defaultProps = {
+  selectedIndex: 0,
+  style: null,
+  onChange: () => null,
+  onShow: () => null,
+  keyExtractor: (item, index) => index.toString(),
+}
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: getStatusBarHeight(),
-  },
-  bottomContentContainer: {
-    flexGrow: 1,
-    justifyContent: 'flex-end',
-    paddingTop: HEIGHT / 4,
-  },
-  centerContentContainer: {
-    flexGrow: 1,
-    justifyContent: 'center',
-  },
-  contentContainer: {
-    paddingBottom: 16,
-  },
-  closeContainer: {
+  optionsContainer: {
     position: 'absolute',
-    bottom: CLOSE_BOTTOM,
-    alignSelf: 'center',
+    top: 0,
   },
-});
-
-DropDown.propTypes = {
-  renderGradientComponent: PropTypes.func, // only if no expo
-  renderBlurComponent: PropTypes.func, // only if no expo
-  renderListComponent: PropTypes.func,
-  containerStyle: ViewPropTypes.style,
-  contentContainerStyle: ViewPropTypes.style,
-  backgroundColor: PropTypes.string, // only HEX value for now
-  closeIcon: nodeType,
-  visible: PropTypes.bool,
-  modalProps: PropTypes.object,
-  onClose: PropTypes.func,
-  getListItemProps: PropTypes.func,
-  transparent: PropTypes.bool,
-  blurProps: PropTypes.object,
-  contentPosition: PropTypes.oneOf(['top', 'center', 'bottom']),
-  ...FlatList.propTypes,
-};
-
-DropDown.defaultProps = {
-  renderListComponent: FlatList,
-  renderBlurComponent: global.Expo ? global.Expo.BlurView : View,
-  renderGradientComponent: global.Expo ? global.Expo.LinearGradient : View,
-  backgroundColor: '#FFFFFF',
-  closeIcon: true,
-  getListItemProps: () => {},
-};
-
-const hexToTransparentRGB = (hex, alpha = 0) => {
-  const rgb = hex
-    .replace(
-      /^#?([a-f\d])([a-f\d])([a-f\d])$/i,
-      (m, r, g, b) => '#' + r + r + g + g + b + b
-    )
-    .substring(1)
-    .match(/.{2}/g)
-    .map(x => parseInt(x, 16));
-  return `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${alpha}))`;
-};
+  selector: {
+    position: 'absolute',
+  },
+})
