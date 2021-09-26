@@ -113,7 +113,7 @@ export const ListItemSwipeable: RneFunctionComponent<ListItemSwipeableProps> =
 
     const { current: _panResponder } = React.useRef(
       PanResponder.create({
-        onMoveShouldSetPanResponderCapture: () => true,
+        onMoveShouldSetPanResponderCapture: (_, { dx, dy }) => Math.abs(dx) > 0 || Math.abs(dy) > 0,
         onPanResponderGrant: () => false,
         onPanResponderMove,
         onPanResponderRelease,
